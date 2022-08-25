@@ -2,7 +2,7 @@
 
 ## Prerequisites Setup
 
-For the 101 session we will require Docker for Desktop with Kubernetes Enabled installed. You will also need homebrew installed.
+For the 101 session we will require Docker for Desktop with Kubernetes Enabled, and homebrew installed.
 
 You can install Docker for Desktop by following the instructions on the [Docker for Desktop](https://docs.docker.com/get-started/#download-and-install-docker) page.
 

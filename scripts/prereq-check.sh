@@ -40,6 +40,7 @@ checkContextDD() {
 
 checkCmd "kubectl"
 checkCmd "docker"
+checkCmd "brew"
 
 checkK8sRunning
 checkContextDD
