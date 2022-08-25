@@ -31,7 +31,7 @@ checkK8sRunning() {
 
 checkContextDD() {
   if kubectl config current-context | grep -qw 'docker-desktop'; then
-    echo -e "$Green Current kubernetes context is set to docker desktop $ColorOff"
+    echo -e "$Green Current kubernetes context is set to docker desktop! $ColorOff"
   else
     CURRENT_CONTEXT=`kubectl config current-context`
     echo -e "$Yellow Current kuberentes context is $CURRENT_CONTEXT, please make sure this is correct! $ColorOff"
