@@ -12,7 +12,7 @@ You can install homebrew via the following command:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-You can check your setup by running the precheck script found in the `scripts` directory of this repo.
+You can check your setup by running the precheck script found at `scripts/prereq-check.sh` of this repo.
 
 ## Setup Argo CLI Tools
 
