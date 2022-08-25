@@ -1,1 +1,1 @@
-# argoCDRollouts101
+# ArgoCon 2022 Instructions
