@@ -21,3 +21,39 @@ You can check your setup by running the precheck script found at `scripts/prereq
 brew install argocd
 brew install argoproj/tap/kubectl-argo-rollouts
 ```
+
+## Setup ArgoCD
+```
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+### Access UI
+Run the following command to access the UI in a new terminal window:
+
+```
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+Visit the UI at `http://localhost:8080`.
+
+The password can be found via: `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`.
+
+## Setup Argo Rollouts Controller via CLI
+
+We will start by logging into ArgoCD username is admin and password can be found via command above.
+```
+argocd --port-forward --port-forward-namespace argocd login
+```
+
+Add a repository to ArgoCD:
+```
+argocd --port-forward --port-forward-namespace argocd repo add https://github.com/argocon22Workshop/argoCDRollouts101
+```
+
+Create application:
+```
+argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo https://github.com/argocon22Workshop/argoCDRollouts101.git --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
+```
+
+## Setup Argo Rollouts Demo App via UI
+Get the UI 
