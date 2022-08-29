@@ -58,5 +58,7 @@ Create application:
 argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo https://github.com/argocon22Workshop/argoCDRollouts101.git --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
 ```
 
+You can now view and sync the application at: https://localhost:8080/applications/argo-rollouts
+
 ## Setup Argo Rollouts Demo App via UI
 Get the UI 
