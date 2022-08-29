@@ -36,7 +36,10 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 Visit the UI at `http://localhost:8080`.
 
-The password can be found via: `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`.
+#### Username: `admin` Password: `run command below` 
+```
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
 
 ## Setup Argo Rollouts Controller via CLI
 
