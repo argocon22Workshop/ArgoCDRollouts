@@ -60,4 +60,6 @@ argocd --port-forward --port-forward-namespace argocd app create argo-rollouts -
 You can now view and sync the application at: https://localhost:8080/applications/argo-rollouts
 
 ## Setup Argo Rollouts Demo App via UI
-Get the UI 
+<img src="assets/mainscreen.png"  width="1024" height="512">
+<img src="assets/createapp-1.png"  width="1024" height="512">
+<img src="assets/createapp-2.png"  width="1024" height="512">
