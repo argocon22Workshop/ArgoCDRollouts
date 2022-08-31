@@ -50,7 +50,7 @@ spec:
   targetLabels: [app]
   selector:
     matchExpressions:
-      - {key: istio, operator: In, values: [mixer,pilot,galley,citadel,sidecar-injector]}
+      - {key: istio, operator: In, values: [pilot]}
   namespaceSelector:
     any: true
   endpoints:
