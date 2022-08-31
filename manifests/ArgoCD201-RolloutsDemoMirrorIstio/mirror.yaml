@@ -79,6 +79,7 @@ spec:
                 exact: POST
               path:
                 prefix: /color
+        - pause: {}
   selector:
     matchLabels:
       app: istio-host-split
