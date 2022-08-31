@@ -85,7 +85,8 @@ resources:
 - upstream/grafana-serviceMonitor.yaml
 - upstream/kubernetesControlPlane-serviceMonitorKubelet.yaml
 - upstream/prometheusAdapter-clusterRoleBindingDelegator.yaml
-- istio_prom.yaml
+- istio_sm.yaml
 - prometheus_ingress.yaml
+- stats_filter.yaml
 patchesStrategicMerge:
 - prom_sa.yaml

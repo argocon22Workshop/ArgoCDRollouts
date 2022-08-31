@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/instance: k8s
     app.kubernetes.io/name: prometheus
     app.kubernetes.io/part-of: kube-prometheus
-    app.kubernetes.io/version: 2.36.0
+    app.kubernetes.io/version: 2.38.0
 spec:
   selector:
     matchExpressions:
@@ -41,6 +41,30 @@ spec:
       action: replace
       targetLabel: pod_name
 ---
+
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: istio-mesh-monitor
+  namespace: monitoring
+  labels:
+    monitoring: istio-mesh
+    release: istio
+    app.kubernetes.io/component: prometheus
+    app.kubernetes.io/instance: k8s
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: kube-prometheus
+    app.kubernetes.io/version: 2.38.0
+spec:
+  selector:
+    matchExpressions:
+      - {key: istio, operator: In, values: [mixer]}
+  namespaceSelector:
+    any: true
+  endpoints:
+    - port: prometheus
+      interval: 15s
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -53,15 +77,196 @@ metadata:
     app.kubernetes.io/instance: k8s
     app.kubernetes.io/name: prometheus
     app.kubernetes.io/part-of: kube-prometheus
-    app.kubernetes.io/version: 2.36.0
+    app.kubernetes.io/version: 2.38.0
 spec:
   jobLabel: istio
-  targetLabels: [app]
   selector:
     matchExpressions:
-    - {key: istio, operator: In, values: [pilot]}
+      - {key: istio, operator: In, values: [mixer,pilot,galley,citadel,sidecar-injector]}
   namespaceSelector:
     any: true
   endpoints:
-  - port: http-monitoring
-    interval: 15s
+    - port: http-monitoring
+      interval: 15s
+    - port: http-policy-monitoring
+      interval: 15s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: envoy-stats-monitor
+  namespace: monitoring
+  labels:
+    monitoring: istio-proxies
+    release: istio
+    app.kubernetes.io/component: prometheus
+    app.kubernetes.io/instance: k8s
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: kube-prometheus
+    app.kubernetes.io/version: 2.38.0
+spec:
+  selector:
+    matchExpressions:
+      - {key: istio-prometheus-ignore, operator: DoesNotExist}
+  namespaceSelector:
+    any: true
+  jobLabel: envoy-stats
+  endpoints:
+    - path: /stats/prometheus
+      targetPort: 15090
+      interval: 15s
+      relabelings:
+        - sourceLabels: [__meta_kubernetes_pod_container_port_name]
+          action: keep
+          regex: '.*-envoy-prom'
+        - action: labelmap
+          regex: "__meta_kubernetes_pod_label_(.+)"
+        - sourceLabels: [__meta_kubernetes_namespace]
+          action: replace
+          targetLabel: namespace
+        - sourceLabels: [__meta_kubernetes_pod_name]
+          action: replace
+          targetLabel: pod_name
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kubernetes-pods-monitor
+  namespace: monitoring
+  labels:
+    monitoring: kube-pods
+    release: istio
+    app.kubernetes.io/component: prometheus
+    app.kubernetes.io/instance: k8s
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: kube-prometheus
+    app.kubernetes.io/version: 2.38.0
+spec:
+  selector:
+    matchExpressions:
+      - {key: istio-prometheus-ignore, operator: DoesNotExist}
+  namespaceSelector:
+    any: true
+  jobLabel: kubernetes-pods
+  endpoints:
+    - interval: 15s
+      relabelings:
+        - sourceLabels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+          action: keep
+          regex: 'true'
+        - sourceLabels: [__meta_kubernetes_pod_annotation_sidecar_istio_io_status, __meta_kubernetes_pod_annotation_prometheus_io_scheme]
+          action: keep
+          regex: '((;.*)|(.*;http)|(.??))'
+        - sourceLabels: [__meta_kubernetes_pod_annotation_istio_mtls]
+          action: drop
+          regex: 'true'
+        - sourceLabels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+          action: replace
+          targetLabel: __metrics_path__
+          regex: '(.+)'
+        - sourceLabels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+          action: replace
+          regex: '([^:]+)(?::\d+)?;(\d+)'
+          replacement: $1:$2
+          targetLabel: __address__
+        - action: labelmap
+          regex: '__meta_kubernetes_pod_label_(.+)'
+        - sourceLabels: [__meta_kubernetes_namespace]
+          action: replace
+          targetLabel: namespace
+        - sourceLabels: [__meta_kubernetes_pod_name]
+          action: replace
+          targetLabel: pod_name
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kubernetes-services-monitor
+  namespace: monitoring
+  labels:
+    monitoring: kube-services
+    release: istio
+    app.kubernetes.io/component: prometheus
+    app.kubernetes.io/instance: k8s
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: kube-prometheus
+    app.kubernetes.io/version: 2.38.0
+spec:
+  selector:
+    matchExpressions:
+      - {key: istio-prometheus-ignore, operator: DoesNotExist}
+  namespaceSelector:
+    any: true
+  jobLabel: kubernetes-services
+  endpoints:
+    - interval: 15s
+      relabelings:
+        - sourceLabels: [__meta_kubernetes_service_annotation_prometheus_io_scrape]
+          action: keep
+          regex: 'true'
+        - sourceLabels: [__meta_kubernetes_pod_annotation_sidecar_istio_io_status, __meta_kubernetes_service_annotation_prometheus_io_scheme]
+          action: keep
+          regex: '((;.*)|(.*;http)|(.??))'
+        - sourceLabels: [__meta_kubernetes_pod_annotation_istio_mtls]
+          action: drop
+          regex: 'true'
+        - sourceLabels: [__meta_kubernetes_service_annotation_prometheus_io_path]
+          action: replace
+          targetLabel: __metrics_path__
+          regex: '(.+)'
+        - sourceLabels: [__address__, __meta_kubernetes_service_annotation_prometheus_io_port]
+          action: replace
+          regex: '([^:]+)(?::\d+)?;(\d+)'
+          replacement: $1:$2
+          targetLabel: __address__
+        - action: labelmap
+          regex: '__meta_kubernetes_pod_label_(.+)'
+        - sourceLabels: [__meta_kubernetes_namespace]
+          action: replace
+          targetLabel: namespace
+        - sourceLabels: [__meta_kubernetes_pod_name]
+          action: replace
+          targetLabel: pod_name
+#---
+#apiVersion: monitoring.coreos.com/v1
+#kind: ServiceMonitor
+#metadata:
+#  name: kubelet
+#  namespace: monitoring
+#  labels:
+#    monitoring: kubelet-monitor
+#    release: istio
+#spec:
+#  endpoints:
+#    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+#      honorLabels: true
+#      interval: 15s
+#      port: http-metrics
+#      scheme: http
+#      tlsConfig:
+#        insecureSkipVerify: true
+#    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+#      honorLabels: true
+#      interval: 15s
+#      relabelings:
+#        - sourceLabels: [job]
+#          action: replace
+#          replacement: kubernetes-cadvisor
+#          targetLabel: job
+#      metricRelabelings:
+#        - action: drop
+#          regex: container_(network_tcp_usage_total|network_udp_usage_total|tasks_state|cpu_load_average_10s)
+#          sourceLabels:
+#            - __name__
+#      path: /metrics/cadvisor
+#      port: http-metrics
+#      scheme: http
+#      tlsConfig:
+#        insecureSkipVerify: true
+#  jobLabel: k8s-app
+#  namespaceSelector:
+#    matchNames:
+#      - kube-system
+#  selector:
+#    matchLabels:
+#      k8s-app: kubelet
