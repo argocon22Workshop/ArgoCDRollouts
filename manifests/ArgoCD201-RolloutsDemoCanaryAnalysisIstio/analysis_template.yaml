@@ -8,6 +8,7 @@ spec:
   metrics:
     - name: success-rate
       interval: 1m
+      count: 2
       # NOTE: prometheus queries return results in the form of a vector.
       # So it is common to access the index 0 of the returned array to obtain the value
       successCondition: result[0] >= 0.95
