@@ -1,7 +1,17 @@
 ## Prerequisites Setup
 
-#### Complete Steps from 101 session
-You can find the directions at [docs/101_README.md](../docs/101_README.md).
+#### Requirements from 101 session (if you did not attend)
+```
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+argocd --port-forward --port-forward-namespace argocd login
+argocd --port-forward --port-forward-namespace argocd repo add https://github.com/argocon22Workshop/argoCDRollouts101
+argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo https://github.com/argocon22Workshop/argoCDRollouts101 --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
+argocd --port-forward --port-forward-namespace argocd app sync argo-rollouts
+```
 
 #### Install Istio
 ```
