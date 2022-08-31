@@ -39,7 +39,13 @@ Visit the UI at `http://localhost:8080`.
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-## Setup guestbook application
+## Setup guestbook application GitOps
+```
+kustomize build manifests/ArgoCD101-GuestbookGitOps/ | kubectl apply -f -
+argocd --port-forward --port-forward-namespace argocd app sync guestbook
+```
+
+## Setup guestbook application CLI
 ```
 argocd --port-forward --port-forward-namespace argocd login
 argocd --port-forward --port-forward-namespace argocd repo add https://github.com/argoproj/argocd-example-apps
