@@ -75,14 +75,6 @@ spec:
         - pause: {}
         - setWeight: 75
         - pause: { }
-#        - setMirrorRoute:
-#          - name: mirror-route
-#            percentage: 50
-#            match:
-#            - method:
-#                exact: POST
-#              path:
-#                prefix: /color
   selector:
     matchLabels:
       app: istio-host-split
