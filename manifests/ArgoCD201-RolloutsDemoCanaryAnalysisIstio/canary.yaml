@@ -58,6 +58,13 @@ spec:
   replicas: 4
   strategy:
     canary:
+      analysis:
+        templates:
+          - templateName: success-rate
+        startingStep: 1 # delay starting analysis run until setWeight: 40%
+        args:
+          - name: service-name
+            value: istio-host-split-canary
       canaryService: istio-host-split-canary
       stableService: istio-host-split-stable
       trafficRouting:
@@ -70,9 +77,11 @@ spec:
               - primary
       steps:
         - setWeight: 25
-        - pause: {}
+        - pause:
+            duration: 10s
         - setWeight: 50
-        - pause: {}
+        - pause:
+            duration: 10s
         - setWeight: 75
         - pause: {}
   selector:
@@ -85,7 +94,7 @@ spec:
     spec:
       containers:
         - name: istio-host-split
-          image: argoproj/rollouts-demo:green
+          image: argoproj/rollouts-demo:red
           ports:
             - name: http
               containerPort: 8080
