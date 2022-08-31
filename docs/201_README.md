@@ -14,6 +14,7 @@ kubectl label namespace argo-rollouts-istio istio-injection=enabled
 #### Install kube-prometheus
 ```
 kubectl apply --server-side -f manifests/prometheus/upstream/setup
+kubectl label namespace monitoring istio-injection=enabled
 kubectl apply -k manifests/prometheus/
 ```
 

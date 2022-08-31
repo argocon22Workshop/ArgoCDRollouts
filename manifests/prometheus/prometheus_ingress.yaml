@@ -1,0 +1,33 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: prometheus
+spec:
+  hosts:
+    - "prometheus.local"
+  gateways:
+    - prometheus
+  http:
+    - name: "prometheus"
+      route:
+        - destination:
+            host: prometheus-k8s.monitoring.svc.cluster.local
+            port:
+              number: 9090
+
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: prometheus
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "prometheus.local"
