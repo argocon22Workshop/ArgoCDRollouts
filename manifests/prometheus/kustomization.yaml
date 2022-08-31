@@ -87,4 +87,4 @@ resources:
 - upstream/prometheusAdapter-clusterRoleBindingDelegator.yaml
 - istio_prom.yaml
 patchesStrategicMerge:
-  - prom_sa.yaml
+- prom_sa.yaml
