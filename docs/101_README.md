@@ -44,6 +44,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 argocd --port-forward --port-forward-namespace argocd login
 argocd --port-forward --port-forward-namespace argocd repo add https://github.com/argoproj/argocd-example-apps
 argocd --port-forward --port-forward-namespace argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps --path guestbook/ --dest-namespace default --dest-server https://kubernetes.default.svc
+argocd --port-forward --port-forward-namespace argocd app sync guestbook
 ```
 
 
