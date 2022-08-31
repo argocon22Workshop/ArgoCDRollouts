@@ -4,3 +4,13 @@ resources:
   - repo.yaml
   - guestbook_application.yaml
 
+patchesJSON6902:
+- target:
+    group: apps
+    version: argoproj.io/v1alpha1
+    kind: Application
+    name: guestbook
+  patch: |-
+    - op: replace
+      path: /spec/source/repoURL
+      value: nginx:latest

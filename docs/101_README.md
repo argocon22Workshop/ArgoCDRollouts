@@ -39,11 +39,18 @@ Visit the UI at `http://localhost:8080`.
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-## Setup guestbook application GitOps
-```
-kustomize build manifests/ArgoCD101-GuestbookGitOps/ | kubectl apply -f -
-argocd --port-forward --port-forward-namespace argocd app sync guestbook
-```
+## Deploy guestbook application via GitOps
+ ###
+ 1. Fork [demo app repo]( https://github.com/argoproj/argocd-example-apps)
+ 1. Execute below command to update the fork repo
+    ```
+    yq e -i  '.spec.source.repoURL = "https://github.com/<REPLACE_USERID>/argocd-example-apps"' guestbook_application.yaml
+    ```
+1. Deploy the app using kustomize.
+    ```
+    kustomize build manifests/ArgoCD101-GuestbookGitOps/ | kubectl apply -f -
+    argocd --port-forward --port-forward-namespace argocd app sync guestbook
+    ```
 
 ## Setup guestbook application CLI
 ```
