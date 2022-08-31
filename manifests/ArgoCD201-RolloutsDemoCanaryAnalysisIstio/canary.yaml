@@ -83,7 +83,8 @@ spec:
         - pause:
             duration: 10s
         - setWeight: 75
-        - pause: {}
+        - pause:
+            duration: 2m
   selector:
     matchLabels:
       app: istio-host-split
