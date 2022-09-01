@@ -43,7 +43,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
  ###
  1. Fork [ArgoCon22 Repo]( https://github.com/argocon22Workshop/argoCDRollouts101 )
  1. Clone the forked repo `git clone git@github.com:<username>/argocd-example-apps.git`
- 1. Edit `manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` replace <username> with your github username that you forked the repo too.
+ 1. Edit `manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` replace <username> with your Github username that you forked the repo too.
  1. Deploy the app using kustomize. Username: `admin` Password: `from command above`
     ```
     kustomize build manifests/ArgoCD101-GuestbookGitOps/ | kubectl apply -f -
@@ -51,11 +51,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
     argocd --port-forward --port-forward-namespace argocd app sync guestbook
     ```
 
-## Setup guestbook application CLI
+## Setup guestbook application via CLI
 ```
 argocd --port-forward --port-forward-namespace argocd login
-argocd --port-forward --port-forward-namespace argocd repo add https://github.com/argoproj/argocd-example-apps
-argocd --port-forward --port-forward-namespace argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps --path guestbook/ --dest-namespace default --dest-server https://kubernetes.default.svc
+argocd --port-forward --port-forward-namespace argocd repo add https://github.com/<username>/argoCDRollouts101
+argocd --port-forward --port-forward-namespace argocd app create guestbook --repo https://github.com/<username>/argoCDRollouts101 --path manifests/ArgoCD101-GuestbookApplicationManifests --dest-namespace default --dest-server https://kubernetes.default.svc
 argocd --port-forward --port-forward-namespace argocd app sync guestbook
 ```
 
@@ -64,8 +64,8 @@ argocd --port-forward --port-forward-namespace argocd app sync guestbook
 ## Setup Argo Rollouts Controller via CLI
 ```
 argocd --port-forward --port-forward-namespace argocd login
-argocd --port-forward --port-forward-namespace argocd repo add https://github.com/argocon22Workshop/argoCDRollouts101
-argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo https://github.com/argocon22Workshop/argoCDRollouts101 --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
+argocd --port-forward --port-forward-namespace argocd repo add https://github.com/<username>/argoCDRollouts101
+argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo https://github.com/<username>/argoCDRollouts101 --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
 argocd --port-forward --port-forward-namespace argocd app sync argo-rollouts
 ```
 

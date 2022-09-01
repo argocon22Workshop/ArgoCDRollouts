@@ -5,6 +5,7 @@
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
+# Get's the generated argocd password
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 # Username: admin password: from output of command above
@@ -30,5 +31,5 @@ kubectl apply -k manifests/prometheus/
 
 #### Install Demo App
 ```
-kustomize build manifests/ArgoCD201-RolloutsDemoMirrorIstio/ | kubectl apply -f -
+kustomize build manifests/ArgoCD201-RolloutsDemoCanaryIstio/ | kubectl apply -f -
 ```
