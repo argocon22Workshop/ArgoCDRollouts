@@ -44,9 +44,10 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
  1. Fork [ArgoCon22 Repo]( https://github.com/argocon22Workshop/argoCDRollouts101 )
  1. Clone the forked repo `git clone git@github.com:<username>/argocd-example-apps.git`
  1. Edit `manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` replace <username> with your github username that you forked the repo too.
-1. Deploy the app using kustomize.
+ 1. Deploy the app using kustomize. Username: `admin` Password: `from command above`
     ```
     kustomize build manifests/ArgoCD101-GuestbookGitOps/ | kubectl apply -f -
+    argocd --port-forward --port-forward-namespace argocd login
     argocd --port-forward --port-forward-namespace argocd app sync guestbook
     ```
 
