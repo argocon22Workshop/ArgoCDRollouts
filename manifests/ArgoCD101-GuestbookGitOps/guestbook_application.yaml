@@ -9,5 +9,5 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: guestbook/
-    repoURL: https://github.com/argoproj/argocd-example-apps
+    path: manifests/ArgoCD101-GuestbookApplicationManifests/
+    repoURL: https://github.com/<username>/argocon22Workshop

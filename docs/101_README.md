@@ -41,11 +41,9 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 ## Deploy guestbook application via GitOps
  ###
- 1. Fork [demo app repo]( https://github.com/argoproj/argocd-example-apps)
- 1. Execute below command to update the fork repo
-    ```
-    yq e -i  '.spec.source.repoURL = "https://github.com/<REPLACE_USERID>/argocd-example-apps"' guestbook_application.yaml
-    ```
+ 1. Fork [ArgoCon22 Repo]( https://github.com/argocon22Workshop/argoCDRollouts101 )
+ 1. Clone the forked repo `git clone git@github.com:<username>/argocd-example-apps.git`
+ 1. Edit `manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` replace <username> with your github username that you forked the repo too.
 1. Deploy the app using kustomize.
     ```
     kustomize build manifests/ArgoCD101-GuestbookGitOps/ | kubectl apply -f -
