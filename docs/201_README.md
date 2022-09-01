@@ -10,8 +10,8 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 # Username: admin password: from output of command above
 argocd --port-forward --port-forward-namespace argocd login
-argocd --port-forward --port-forward-namespace argocd repo add https://github.com/argocon22Workshop/argoCDRollouts101
-argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo https://github.com/argocon22Workshop/argoCDRollouts101 --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
+argocd --port-forward --port-forward-namespace argocd repo add https://github.com/argocon22Workshop/ArgoCDRollouts
+argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo https://github.com/argocon22Workshop/ArgoCDRollouts --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
 argocd --port-forward --port-forward-namespace argocd app sync argo-rollouts
 ```
 
