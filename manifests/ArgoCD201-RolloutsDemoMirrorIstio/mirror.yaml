@@ -90,7 +90,7 @@ spec:
     spec:
       containers:
         - name: istio-host-split
-          image: argoproj/rollouts-demo:green
+          image: ghcr.io/argocon22workshop/rollouts-demo:green
           ports:
             - name: http
               containerPort: 8080
