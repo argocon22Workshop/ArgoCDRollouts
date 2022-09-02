@@ -5,7 +5,7 @@
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-# Get's the generated argocd password
+# Get's the generated argocd password, might take a little bit to allow argocd to fully start
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 # Username: admin password: from output of command above
@@ -33,6 +33,9 @@ kubectl apply -k manifests/prometheus/
 ```
 kustomize build manifests/ArgoCD201-RolloutsDemoCanaryIstio/ | kubectl apply -f -
 ```
+Run `kubectl get services -n istio-system | grep istio-ingressgateway` and wait for `<pending>` to switch to localhost
+if it does not try quiting and restarting docker for desktop.
+
 Now visit http://localhost to view the demo app and run `kubectl-argo-rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
 dashboard.
 
