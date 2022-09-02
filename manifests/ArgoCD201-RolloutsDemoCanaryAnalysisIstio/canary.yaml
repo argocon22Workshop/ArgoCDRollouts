@@ -61,15 +61,13 @@ spec:
       analysis:
         templates:
           - templateName: success-rate
-        startingStep: 1 # delay starting analysis run until setWeight: 40%
+        startingStep: 2 # delay starting analysis run until setWeight: 40%
         args:
           - name: service-name
             value: istio-host-split-canary
       canaryService: istio-host-split-canary
       stableService: istio-host-split-stable
       trafficRouting:
-        managedRoutes:
-          - name: mirror-route
         istio:
           virtualService:
             name: istio-host-split-vsvc
@@ -95,7 +93,7 @@ spec:
     spec:
       containers:
         - name: istio-host-split
-          image: ghcr.io/argocon22workshop/rollouts-demo:blue
+          image: ghcr.io/argocon22workshop/rollouts-demo:green
           ports:
             - name: http
               containerPort: 8080
