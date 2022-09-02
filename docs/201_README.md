@@ -40,8 +40,10 @@ Now visit http://localhost to view the demo app and run `kubectl-argo-rollouts d
 dashboard.
 
 ## Tasks:
-[Task 1](docs/Tasks-201-Rollouts/task1.md) - Create a Rollout with Istio Traffic Management
+[Task 1](docs/Tasks-201-Rollouts/task1.md) - Perform a canary rollout with Istio
 
-[Task 2](docs/Tasks-201-Rollouts/task2.md) - Create a Rollout with Istio Traffic Management
+[Task 2](docs/Tasks-201-Rollouts/task2.md) - Perform a canary rollout with AnalysisRun rollback
 
-[Task 3](docs/Tasks-201-Rollouts/task3.md) - Create a Rollout with Istio Traffic Management
+[Task 3](docs/Tasks-201-Rollouts/task2.md) - Create an experiment
+
+[Task 4](docs/Tasks-201-Rollouts/task4.md) - Create a canary rollout with a mirror traffic step
