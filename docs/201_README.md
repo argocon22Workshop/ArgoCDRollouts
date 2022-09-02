@@ -33,3 +33,12 @@ kubectl apply -k manifests/prometheus/
 ```
 kustomize build manifests/ArgoCD201-RolloutsDemoCanaryIstio/ | kubectl apply -f -
 ```
+Now visit http://localhost to view the demo app and run `kubectl-argo-rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
+dashboard.
+
+## Tasks:
+[Task 1](docs/Tasks-201-Rollouts/task1.md) - Create a Rollout with Istio Traffic Management
+
+[Task 2](docs/Tasks-201-Rollouts/task2.md) - Create a Rollout with Istio Traffic Management
+
+[Task 3](docs/Tasks-201-Rollouts/task3.md) - Create a Rollout with Istio Traffic Management
