@@ -1,6 +1,8 @@
 ## Prerequisites Setup
 
 #### Requirements from 101 session (if you did not attend)
+1. Fork this repo then run the command below changing `<username>` for your GitHub username.
+
 ```
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
@@ -10,8 +12,8 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 # Username: admin password: from output of command above
 argocd --port-forward --port-forward-namespace argocd login
-argocd --port-forward --port-forward-namespace argocd repo add https://github.com/argocon22Workshop/ArgoCDRollouts
-argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo https://github.com/argocon22Workshop/ArgoCDRollouts --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
+argocd --port-forward --port-forward-namespace argocd repo add https://github.com/<username>/ArgoCDRollouts
+argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo https://github.com/<username>/ArgoCDRollouts --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
 argocd --port-forward --port-forward-namespace argocd app sync argo-rollouts
 ```
 
@@ -36,14 +38,14 @@ kustomize build manifests/ArgoCD201-RolloutsDemoCanaryIstio/ | kubectl apply -f 
 Run `kubectl get services -n istio-system | grep istio-ingressgateway` and wait for `<pending>` to switch to localhost
 if it does not try quiting and restarting docker for desktop.
 
-Now visit http://localhost to view the demo app and run `kubectl-argo-rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
+Now visit http://localhost to view the demo app and run `kubectl argo rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
 dashboard.
 
 ## Tasks:
 [Task 1](docs/Tasks-201-Rollouts/task1.md) - Perform a canary rollout with Istio
 
-[Task 2](docs/Tasks-201-Rollouts/task2.md) - Perform a canary rollout with AnalysisRun rollback
+[Task 2](docs/Tasks-201-Rollouts/task2.md) - Perform a canary rollout with AnalysisRun auto rollback
 
-[Task 3](docs/Tasks-201-Rollouts/task2.md) - Create an experiment
+[Task 3](docs/Tasks-201-Rollouts/task2.md) - Create a canary rollout with an Experiment
 
-[Task 4](docs/Tasks-201-Rollouts/task4.md) - Create a canary rollout with a mirror traffic step
+[Task 4](docs/Tasks-201-Rollouts/task4.md) - Create a canary rollout with a traffic mirroring step
