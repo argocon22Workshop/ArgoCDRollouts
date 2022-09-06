@@ -17,6 +17,6 @@ spec:
         prometheus:
           address: http://prometheus-k8s.monitoring:9090
           query: |
-            sum(irate(istio_requests_total{destination_service_name=~"{{args.service-name}}",response_code!~"5.*"}[5m])) 
+            sum(irate(istio_requests_total{destination_service_name=~"{{args.service-name}}",response_code!~"5.*"}[1m])) 
             /
-            sum(irate(istio_requests_total{destination_service_name=~"{{args.service-name}}"}[5m]))
+            sum(irate(istio_requests_total{destination_service_name=~"{{args.service-name}}"}[1m]))
