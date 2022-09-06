@@ -57,5 +57,12 @@ This will start the rollout and pause at 25% of the traffic being routed to the 
 1. Open the demo app [UI](http://localhost) adjust the error rate to 60%.
 1. Now promote the rollout which will start the analysis run. We will do this by promoting the rollout to the next step via CLI `kubectl argo rollouts promote istio-host-split -n argo-rollouts-istio` 
 or via the UI promote button.
-1. Now switch back and forth between the rollouts UI and the demo app and watch as the analysis run fails and the 
+1. Now switch back and forth between the rollouts UI and the demo app UI and watch as the analysis run fails and the 
 rollout automatically rolls back.
+
+### 4. Retry the rollout without the error rate
+Set the demo app error rate back to 0% and retry the rollout.
+
+You can retry the rollout via CLI `kubectl argo rollouts retry rollout istio-host-split -n argo-rollouts-istio` or via the UI retry button. 
+
+#### Rembember to promote pass the first pause.
