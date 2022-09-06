@@ -12,7 +12,7 @@ kubectl argo rollouts promote --full istio-host-split -n argo-rollouts-istio
 
 ### 2. Looking at the manifest there are a few main things to note:
 
-1. The Analysis query is defined below which would give us the 5xx error rate as a percentage:
+1. The [Analysis query](../../manifests/ArgoCD201-RolloutsDemoCanaryAnalysisIstio/analysis_template.yaml#19) is defined below which would give us the 5xx error rate as a percentage:
 ```
 sum(irate(istio_requests_total{destination_service_name=~"{{args.service-name}}",response_code!~"5.*"}[1m])) 
 /
