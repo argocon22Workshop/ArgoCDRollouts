@@ -29,14 +29,14 @@ kubectl argo rollouts promote --full istio-host-split -n argo-rollouts-istio
 
 #### 4. Bonus - You can now perform these same steps using the Argo Rollouts UI
 
-If you do not have the UI running locally yet re-run the following command:
+If you do not have the UI running locally yet run the following command:
 ```
 kubectl argo rollouts dashboard
 ```
 
 Then visit the UI at: http://localhost:3100
 
-You can then path the rollout to a new color:
+You can then update the rollout image to a new color and promote the rollout to the next steps via the UI.
 ```
 kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patch '[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "ghcr.io/argocon22workshop/rollouts-demo:green" }]'
 ```
