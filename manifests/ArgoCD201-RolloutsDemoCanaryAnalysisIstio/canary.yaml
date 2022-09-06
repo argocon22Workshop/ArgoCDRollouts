@@ -61,7 +61,7 @@ spec:
       analysis:
         templates:
           - templateName: success-rate
-        startingStep: 2 # delay starting analysis run until setWeight: 40%
+        startingStep: 3 # delay starting analysis run until setWeight: 40%
         args:
           - name: service-name
             value: istio-host-split-canary
@@ -75,6 +75,8 @@ spec:
               - primary
       steps:
         - setWeight: 25
+        - pause: {}
+        - setWeight: 35
         - pause:
             duration: 10s
         - setWeight: 50

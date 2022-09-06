@@ -35,7 +35,9 @@ argument to the analysis run of the canary service name.
 ```
 steps:
   - setWeight: 25
-  - pause: # The background analysis will start here.
+  - pause: {}
+  - setWeight: 35 # Analysis will start here
+  - pause:
       duration: 10s
   - setWeight: 50
   - pause:
@@ -43,4 +45,9 @@ steps:
   - setWeight: 75
   - pause:
       duration: 2m
+```
+
+### 3. Start the Rollout process by editing the image
+```
+kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patch '[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "ghcr.io/argocon22workshop/rollouts-demo:yellow" }]'
 ```
