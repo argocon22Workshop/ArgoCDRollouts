@@ -4,7 +4,7 @@ kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patc
 ```
 
 View the demo app at http://localhost and see the new color red at roughly 25% this is because we have this defined in our rollout
-spec:
+[spec](../../manifests/ArgoCD201-RolloutsDemoCanaryIstio/canary.yaml#L71):
 ```
 steps:
   - setWeight: 25
