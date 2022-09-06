@@ -51,3 +51,11 @@ steps:
 ```
 kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patch '[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "ghcr.io/argocon22workshop/rollouts-demo:yellow" }]'
 ```
+
+This will start the rollout and pause at 25% of the traffic being routed to the canary. You can view the rollout status via the UI.
+
+1. Open the demo app [UI](http://localhost) adjust the error rate to 60%.
+1. Now promote the rollout which will start the analysis run. We will do this by promoting the rollout to the next step via CLI `kubectl argo rollouts promote istio-host-split -n argo-rollouts-istio` 
+or via the UI promote button.
+1. Now switch back and forth between the rollouts UI and the demo app and watch as the analysis run fails and the 
+rollout automatically rolls back.
