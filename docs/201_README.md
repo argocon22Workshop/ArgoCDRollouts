@@ -47,5 +47,3 @@ dashboard.
 [Task 2](Tasks-201-Rollouts/task2.md) - Perform a canary rollout with AnalysisRun and auto rollback
 
 [Task 3](Tasks-201-Rollouts/task3.md) - Create a canary rollout with a traffic mirroring step
-
-[Task 3](Tasks-201-Rollouts/task4.md) - Create a canary rollout with an Experiment
