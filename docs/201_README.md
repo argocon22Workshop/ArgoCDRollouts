@@ -36,7 +36,7 @@ kubectl apply -k manifests/prometheus/
 kustomize build manifests/ArgoCD201-RolloutsDemoCanaryIstio/ | kubectl apply -f -
 ```
 Run `kubectl get services -n istio-system | grep istio-ingressgateway` and wait for `<pending>` to switch to localhost
-if it does not try quiting and restarting docker for desktop.
+if it does not try quiting and restarting docker for desktop. You can also try resetting docker for desktops kubernetes cluster.
 
 Now visit http://localhost to view the demo app and run `kubectl argo rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
 dashboard.
