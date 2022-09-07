@@ -1,7 +1,8 @@
 ## Prerequisites Setup
 
 #### Requirements from 101 session (if you did not attend)
-1. Fork this repo then run the command below changing `<username>` for your GitHub username.
+
+Fork this repo then run the command below changing `<username>` for your GitHub username.
 
 ```
 kubectl create namespace argocd
