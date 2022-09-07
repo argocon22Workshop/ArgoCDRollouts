@@ -74,7 +74,7 @@ kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patc
 
 <details>
 <summary>Click to view solution</summary>
-    1. Modify the rollout to use the background analysis from task 
+    1. Modify the rollout to use the background analysis from task 2. 
 
     # Background analysis snippet from task 2:
     ...
