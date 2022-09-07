@@ -65,11 +65,25 @@ Now lets look at the demo app web UI found at http://localhost we can see that w
 we do not send the response back to the end users. This allows us to fully test the canary with read only traffic looking for an
 increase in error rates without the end user ever noticing anything.
 
-#### 5. Bonus - Add your own analysis template to the rollout with mirroring 
+#### 5. Bonus - Modify rollout to add background analysis to abort when mirrored traffic has high error rate
 
 Use the following image during the rollout to simulate bad requests
 ```
 kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patch '[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "ghcr.io/argocon22workshop/rollouts-demo:bad-red" }]'
 ```
 
-Have your analysis template look at the error rates of the mirrored traffic and fail the rollout if the error rate is greater than 1%.
+<details>
+<summary>Click to view solution</summary>
+    1. Modify the rollout to use the background analysis from task 
+
+    # Background analysis snippet from task 2:
+    ...
+      analysis:
+        templates:
+          - templateName: success-rate
+        startingStep: 1
+        args:
+          - name: service-name
+            value: istio-host-split-canary
+    ...
+</details>
