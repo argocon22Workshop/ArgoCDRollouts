@@ -26,7 +26,7 @@ argument to the analysis run of the canary service name.
   analysis:
     templates:
       - templateName: success-rate
-    startingStep: 2 # delay starting analysis run until setWeight: 40%
+    startingStep: 2 # delay starting analysis run until setWeight: 35%
     args:
       - name: service-name
         value: istio-host-split-canary
@@ -65,4 +65,4 @@ Set the demo app error rate back to 0% and retry the rollout. You might need to 
 
 You can retry the rollout via CLI `kubectl argo rollouts retry rollout istio-host-split -n argo-rollouts-istio` or via the UI retry button. 
 
-#### Rembember to promote pass the first pause.
+#### Remember to promote past the first pause.
