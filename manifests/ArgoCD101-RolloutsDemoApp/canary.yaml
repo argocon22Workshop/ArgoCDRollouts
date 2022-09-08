@@ -91,4 +91,4 @@ spec:
               service:
                 name: canary-demo
                 port:
-                  number: 81
+                  number: 8178
