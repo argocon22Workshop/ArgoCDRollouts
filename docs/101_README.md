@@ -43,6 +43,7 @@
 
 
 1. Setup guestbook application
+    -   Fork this repo first then replace `<username>` with your GitHub username in the commands below.
     ```
     argocd --port-forward --port-forward-namespace argocd login
     argocd --port-forward --port-forward-namespace argocd repo add https://github.com/<username>/ArgoCDRollouts
