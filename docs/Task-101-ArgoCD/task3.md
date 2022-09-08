@@ -19,7 +19,7 @@ To setup declarative, you need to define the Application manifest, which uses yo
             <details>
             <summary>Click to view solution</summary>
 
-            1. Add the below spec to  manifests/ArgoCD101-GuestbookGitOps/
+            1. Add the below spec to  manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml
                     # Sync policy
                     syncPolicy:
                         automated:
