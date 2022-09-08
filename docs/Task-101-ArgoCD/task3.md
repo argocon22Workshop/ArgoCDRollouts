@@ -3,8 +3,9 @@
 Argo CD applications, projects and settings can be defined declaratively using Kubernetes manifests. Argo CD comes with its own crd that can be stored in github repo, and applied in a target cluster using kubectl or  using Argo CD.
 To setup declarative, you need to define the Application manifest, which uses your source repo.
 
+
 1. Edit [manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml) replace with your Github username that you forked the repo too.
-1. Deploy the app using Application manfest. Username: admin Password: from command above
+1. Deploy the app using Application manfest using the user id `admin` and `password`.
     ```
     Delete any app with the name guestbook. The app will be recreated using the Application manifest file.
     argocd --port-forward --port-forward-namespace argocd app delete guestbook --cascade
