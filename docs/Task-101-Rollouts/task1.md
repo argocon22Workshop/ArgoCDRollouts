@@ -19,4 +19,6 @@ rollout which is shown below:
     ```
 5. You will notice that the second step is `pause: {}` which means that the rollout will pause at 20% of the traffic until
 we manually unpause the rollout. We will do this in the next step.
-6. 
+6. Go into the ArgoCD UI and look for the rollout resource you will see the three vertical dots you can click. 
+Under thant menu there will be a resume option click that and then go watch the rollouts demo app as it gradually increases
+traffic to the canary.
