@@ -1,8 +1,8 @@
 # Argo CD / Rollouts Workshop 201
 
-## Tasks
-
 ### 1. Install prerequisites
+
+Only run th rough step 1.1 if you did not attend the 101 workshop.
 
 #### 1.1. Requirements from [101 session](101_README.md) (if you did not attend)
 
@@ -50,8 +50,8 @@ if it does not try quiting and restarting docker for desktop. You can also try r
 Now visit http://localhost to view the demo app and run `kubectl argo rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
 dashboard.
 
-### 2 Try some Argo Rollouts exercises
+### 2. Try some Argo Rollouts exercises
 
-- [Task 2.1](Tasks-201-Rollouts/task1.md) - Perform a canary rollout with Istio
-- [Task 2.2](Tasks-201-Rollouts/task2.md) - Perform a canary rollout with AnalysisRun and auto rollback
-- [Task 2.3](Tasks-201-Rollouts/task3.md) - Create a canary rollout with a traffic mirroring step
+- [Exercise 2.1](Tasks-201-Rollouts/task1.md) - Perform a canary rollout with Istio
+- [Exercise 2.2](Tasks-201-Rollouts/task2.md) - Perform a canary rollout with AnalysisRun and auto rollback
+- [Exercise 2.3](Tasks-201-Rollouts/task3.md) - Create a canary rollout with a traffic mirroring step
