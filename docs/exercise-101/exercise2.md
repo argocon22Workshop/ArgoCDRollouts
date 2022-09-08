@@ -13,4 +13,3 @@ argocd --port-forward --port-forward-namespace argocd repo add "https://github.c
 argocd --port-forward --port-forward-namespace argocd app create guestbook --repo "https://github.com/$USERNAME/ArgoCDRollouts" --path manifests/ArgoCD101-GuestbookApplicationManifests --dest-namespace default --dest-server https://kubernetes.default.svc
 argocd --port-forward --port-forward-namespace argocd app sync guestbook
 ```
-
