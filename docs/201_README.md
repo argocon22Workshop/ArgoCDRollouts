@@ -4,7 +4,9 @@
 
 Only run th rough step 1.1 if you did not attend the 101 workshop.
 
-#### 1.1. Requirements from [101 session](101_README.md) (if you did not attend)
+#### 1.1. Prerequisites (if you did not attend)
+
+Make sure you have the Workshop prerequisites from [101 session](101_README.md) installed section 1.
 
 Fork this repo then run the command below changing `<username>` to your GitHub username.
 
