@@ -10,10 +10,10 @@ If states are different mark the application as `OutOfSync`.
 
 1. Fork [ArgoCon22 Repo](https://github.com/argocon22Workshop/ArgoCDRollouts)
 1. Clone the forked repo git clone git@github.com:<username>/ArgoCDRollouts.git
-1. Explore the manifest used in this task found [here](https://github.com/argocon22Workshop/ArgoCDRollouts/tree/main/manifests/ArgoCD101-GuestbookApplicationManifests).
+1. Explore the manifest used in this task found [here](https://github.com/argocon22Workshop/ArgoCDRollouts/tree/main/manifests/ArgoCD101-GuestbookManifests).
 1. Edit [manifest/ArgoCD101-GuestbookManifests/deployment.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookManifests/deployment.yaml) change the replica count to 3.
 1. Commit the change to your own fork repo.
-1. Login into ArgoCD using the user id `admin` and `password` from the previous [step](101_README.md#username-admin-password-run-command-below).
+1. Login into ArgoCD using the user id `admin` and `password`.
     >
     1. Go to the Argo CD application and  click on the `APP DIFF` button.
     1. Take a note of the differences in the ArgoCD application, app will be OutOfSync. The replica count is changed to 3.

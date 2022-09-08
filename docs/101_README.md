@@ -32,6 +32,7 @@
     ```
     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
     ```
+    **Remember the password, as you will need it later in the workshop exercise.
     #### Access UI
     Run the following command to access the UI in a new terminal window:
 
