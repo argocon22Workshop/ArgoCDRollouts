@@ -45,9 +45,10 @@ kind: Service
 metadata:
   name: canary-demo-preview
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 80
+      nodePort: 34235
       targetPort: http
       protocol: TCP
       name: http
@@ -61,9 +62,10 @@ kind: Service
 metadata:
   name: canary-demo
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 80
+      nodePort: 34236
       targetPort: http
       protocol: TCP
       name: http
