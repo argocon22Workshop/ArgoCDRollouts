@@ -17,8 +17,8 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 USERNAME="<username>"
 argocd --port-forward --port-forward-namespace argocd login
 argocd --port-forward --port-forward-namespace argocd repo add "https://github.com/$USERNAME/ArgoCDRollouts"
-argocd --port-forward --port-forward-namespace argocd app create guestbook --repo "https://github.com/$USERNAME/ArgoCDRollouts" --path manifests/ArgoCD101-GuestbookApplicationManifests --dest-namespace default --dest-server https://kubernetes.default.svc
-argocd --port-forward --port-forward-namespace argocd app sync guestbook
+argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo "https://github.com/$USERNAME/ArgoCDRollouts" --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
+argocd --port-forward --port-forward-namespace argocd app sync argo-rollouts
 ```
 
 ### Install Istio
