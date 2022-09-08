@@ -64,7 +64,7 @@
     ```
     `You can now view and sync the application at: https://localhost:8080/applications/argo-rollouts`
 
-1. Deploy Argo Rollouts Demo App via UI
+1. Deploy Argo Rollouts Demo App and Nginx Ingress Controller via UI
 
     1. Click on the  `New App`![main](../assets/mainscreen.jpg)
     1. Fill the application details ![screen2](../assets/createapp-1.jpg)
