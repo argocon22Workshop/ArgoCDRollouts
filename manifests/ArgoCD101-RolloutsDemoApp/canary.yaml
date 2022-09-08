@@ -48,7 +48,7 @@ spec:
   type: NodePort
   ports:
     - port: 80
-      nodePort: 34235
+      nodePort: 32567
       targetPort: http
       protocol: TCP
       name: http
@@ -65,7 +65,7 @@ spec:
   type: NodePort
   ports:
     - port: 80
-      nodePort: 34236
+      nodePort: 32568
       targetPort: http
       protocol: TCP
       name: http
