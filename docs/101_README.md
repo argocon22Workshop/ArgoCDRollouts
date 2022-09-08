@@ -97,7 +97,7 @@
         - Contribute to resource customization
             - https://github.com/argoproj/argo-cd/tree/master/resource_customizations
 
-#### Argocd Project documentation
+#### Argo CD Project documentation
 
 - [ArgoCD Documentation](https://argo-cd.readthedocs.io/)
 - [Argo Rollout](https://argoproj.github.io)
