@@ -45,6 +45,7 @@ kind: Service
 metadata:
   name: canary-demo-preview
 spec:
+  type: LoadBalancer
   ports:
     - port: 80
       targetPort: http
@@ -60,6 +61,7 @@ kind: Service
 metadata:
   name: canary-demo
 spec:
+  type: LoadBalancer
   ports:
     - port: 80
       targetPort: http
