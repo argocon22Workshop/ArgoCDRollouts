@@ -105,4 +105,4 @@ You can now view and sync the application at [https://localhost:8080/application
 
 - [Argo CD Documentation](https://argo-cd.readthedocs.io/)
 - [Argo Rollout](https://argoproj.github.io)
-- [ApplicationSets](https://argo-cd.readthedocs.io )
+- [ApplicationSets](https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/)
