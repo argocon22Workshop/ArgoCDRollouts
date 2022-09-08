@@ -1,4 +1,4 @@
-### 1. Modify the image to red
+### 1. Trigger rollout by modifying the image to red
 
 1. Within your forked repo navigate to the `manifests/ArgoCD101-RolloutsDemoApp/canary.yaml` file and edit the 
 image to `ghcr.io/argocon22workshop/rollouts-demo:red` and commit the change and push.
