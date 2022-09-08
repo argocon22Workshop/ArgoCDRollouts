@@ -26,7 +26,3 @@ If states are different mark the application as `OutOfSync`.
                 1. In the ArgoCD UI, click on `deploy` resource. Edit the `live manifest` and change the replica count to one.  \
                 2. A total of 2 pods will terminate and the application will be marked out of sync.  \
             </details>
-    - Synchronizing an Argo CD application with the argocd CLI?
-            <details>
-            <summary>Click to view solution</summary>
-            </details>
