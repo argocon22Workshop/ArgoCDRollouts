@@ -19,8 +19,6 @@
 
     1. Check the previous steps by running [`scripts/prereq-check.sh`](../scripts/prereq-check.sh) found in this repo.
     
-
-
 1. Install Argo CD and log in
 
     ```sh
