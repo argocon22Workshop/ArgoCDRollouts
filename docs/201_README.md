@@ -1,8 +1,10 @@
 # Argo CD / Rollouts Workshop 201
 
-## Install prerequisites
+## Tasks
 
-### Requirements from [101 session](101_README.md) (if you did not attend)
+### 1. Install prerequisites
+
+#### 1.1. Requirements from [101 session](101_README.md) (if you did not attend)
 
 Fork this repo then run the command below changing `<username>` to your GitHub username.
 
@@ -21,7 +23,7 @@ argocd --port-forward --port-forward-namespace argocd app create argo-rollouts -
 argocd --port-forward --port-forward-namespace argocd app sync argo-rollouts
 ```
 
-### Install Istio
+#### 1.2. Install Istio
 
 ```sh
 brew install istioctl
@@ -30,13 +32,13 @@ kubectl create namespace argo-rollouts-istio
 kubectl label namespace argo-rollouts-istio istio-injection=enabled
 ```
 
-### Install kube-prometheus
+#### 1.3. Install kube-prometheus
 ```sh
 kubectl apply --server-side -f manifests/prometheus/upstream/setup
 kubectl apply -k manifests/prometheus/
 ```
 
-### Install Demo App
+#### 1.4 Install Demo App
 
 ```sh
 kustomize build manifests/ArgoCD201-RolloutsDemoCanaryIstio/ | kubectl apply -f -
@@ -48,10 +50,8 @@ if it does not try quiting and restarting docker for desktop. You can also try r
 Now visit http://localhost to view the demo app and run `kubectl argo rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
 dashboard.
 
-## Try some Argo Rollouts exercises
+### 2 Try some Argo Rollouts exercises
 
-[Task 1](Tasks-201-Rollouts/task1.md) - Perform a canary rollout with Istio
-
-[Task 2](Tasks-201-Rollouts/task2.md) - Perform a canary rollout with AnalysisRun and auto rollback
-
-[Task 3](Tasks-201-Rollouts/task3.md) - Create a canary rollout with a traffic mirroring step
+- [Task 2.1](Tasks-201-Rollouts/task1.md) - Perform a canary rollout with Istio
+- [Task 2.2](Tasks-201-Rollouts/task2.md) - Perform a canary rollout with AnalysisRun and auto rollback
+- [Task 2.3](Tasks-201-Rollouts/task3.md) - Create a canary rollout with a traffic mirroring step

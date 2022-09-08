@@ -1,6 +1,8 @@
 # Argo CD / Rollouts Workshop 101
 
-## Install prerequisites
+## Tasks
+
+### 1. Install prerequisites
 
  For the 101 session we will require Docker Desktop, Homebrew, and the Argo CLIs.
 
@@ -21,14 +23,14 @@
 
  1. Check the previous steps by running [`scripts/prereq-check.sh`](../scripts/prereq-check.sh) found in this repo.
     
-## Install Argo CD and log in
+### 2. Install Argo CD and log in
 
 ```sh
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
-#### Retrieve the initial admin password
+#### 2.1 Retrieve the initial admin password
 
 ```sh
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
@@ -36,7 +38,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 **Remember the password, as you will need it later in the workshop exercise.
 
-#### Load the UI
+#### 2.2 Load the UI
 
 Run the following command to access the UI in a new terminal window:
 
@@ -48,7 +50,7 @@ Visit the UI at [`https://localhost:8080`](https://localhost:8080).
 
 Log in with username `admin` and the password retrieved above.
 
-## Set up a simple test application
+### 3. Set up a simple test application
 
 Fork this repo first then replace `<username>` with your GitHub username in the first command below.
 
@@ -60,15 +62,15 @@ argocd --port-forward --port-forward-namespace argocd app create guestbook --rep
 argocd --port-forward --port-forward-namespace argocd app sync guestbook
 ```
 
-## Try some basic Argo CD tasks
+### 4. Try some basic Argo CD exercises
 
 These exercises are based on Argo CD and GitOps concepts. The purpose of this is to familiarize you with the Argo CD UI and CLI.
    
-- [Task 1](Task-101-ArgoCD/task1.md) - Application Sync Status
-- [Task 2](Task-101-ArgoCD/task2.md) - Sync Policy & Options
-- [Task 3](Task-101-ArgoCD/task3.md) - Declarative Setup (GitOps)
+- [Task 4.1](Task-101-ArgoCD/task1.md) - Application Sync Status
+- [Task 4.2](Task-101-ArgoCD/task2.md) - Sync Policy & Options
+- [Task 4.3](Task-101-ArgoCD/task3.md) - Declarative Setup (GitOps)
 
-## Install Argo Rollouts
+### 5. Install Argo Rollouts
 
 ```sh
 kubectl create namespace argo-rollouts
@@ -77,7 +79,7 @@ kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/rele
 
 You can now view and sync the application at [https://localhost:8080/applications/argo-rollouts](https://localhost:8080/applications/argo-rollouts).
 
-## Deploy Argo Rollouts Demo App and Nginx Ingress Controller via UI
+### 6. Deploy Argo Rollouts Demo App and Nginx Ingress Controller via UI
 
  1. Click on the `New App` button 
     ![main](../assets/mainscreen.jpg)
@@ -87,13 +89,13 @@ You can now view and sync the application at [https://localhost:8080/application
     ![screen3](../assets/createapp-2.jpg)
  1. Click on the `Sync` button within the application to deploy
     
-## Do Argo Rollouts Exercises
+### 7. Do Argo Rollouts Exercises
 
  - [Deployment Strategies](https://argoproj.github.io/argo-rollouts/concepts/#deployment-strategies)
      - [Task 1](Task-101-Rollouts/task1.md) - BasicCanary Rollout
      > A canary rollout is a deployment strategy where the operator releases a new version of their application to a small percentage of the production traffic.
 
-## Check out Argo CD and Argo Rollouts integrations
+### 8. Check out Argo CD and Argo Rollouts integrations
 
  - [Custom Health Check](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/#custom-health-checks)
  - [Custom Action](https://argo-cd.readthedocs.io/en/stable/operator-manual/resource_actions/#custom-resource-actions)
@@ -101,7 +103,9 @@ You can now view and sync the application at [https://localhost:8080/application
      - Contribute to resource customization
          - https://github.com/argoproj/argo-cd/tree/master/resource_customizations
 
-#### Argo CD / Rollouts Project documentation
+## References
+
+### Argo CD / Rollouts Project documentation
 
 - [Argo CD Documentation](https://argo-cd.readthedocs.io/)
 - [Argo Rollout](https://argoproj.github.io)
