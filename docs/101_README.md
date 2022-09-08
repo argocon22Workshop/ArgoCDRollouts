@@ -61,7 +61,6 @@
     ```
     kubectl create namespace argo-rollouts
     kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
-
     ```
     `You can now view and sync the application at: https://localhost:8080/applications/argo-rollouts`
 
@@ -70,12 +69,13 @@
     1. Click on the  `New App`![main](../assets/mainscreen.jpg)
     1. Fill the application details ![screen2](../assets/createapp-1.jpg)
     1. Click on the `Create` button  to create argo rollout application![screen3](../assets/createapp-2.jpg)
+    1. Click on the `Sync` button within the application to deploy.
+
 
 1. Argo Rollout Exercises
     - [Deployment Strategies](https://argoproj.github.io/argo-rollouts/concepts/#deployment-strategies)
-        - [Task 1](Task-101-Rollouts/task1.md) - BlueGreen
-        >
-        BlueGreen enables the developers to run tests against the new version of the application before switching the live traffic over to the new version of the application, whereas canary deployment exposes a subset of users to the new version of the application while serving the rest of the traffic to the previous version.
+        - [Task 1](Task-101-Rollouts/task1.md) - BasicCanary Rollout
+        > A canary rollout is a deployment strategy where the operator releases a new version of their application to a small percentage of the production traffic.
 
 1. ArgoCD and ArgoRollouts integrations
     - [Custom Health Check](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/#custom-health-checks)
