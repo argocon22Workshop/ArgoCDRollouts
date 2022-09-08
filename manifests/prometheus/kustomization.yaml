@@ -86,6 +86,7 @@ resources:
 - upstream/kubernetesControlPlane-serviceMonitorKubelet.yaml
 - upstream/prometheusAdapter-clusterRoleBindingDelegator.yaml
 - istio_sm.yaml
+- controller_sm.yaml
 - prometheus_ingress.yaml
 - stats_filter.yaml
 patchesStrategicMerge:

@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: argo-controller-monitor
+  namespace: monitoring
+spec:
+  jobLabel: argo-rollouts-controller
+  targetLabels: [app.kubernetes.io/name]
+  selector:
+    matchExpressions:
+      - {key: app.kubernetes.io/name, operator: In, values: [argo-rollouts-metrics]}
+  namespaceSelector:
+    any: true
+  endpoints:
+    - port: metrics
+      interval: 15s
