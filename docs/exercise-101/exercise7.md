@@ -11,3 +11,4 @@ In this exercise we will deploy Argo Rollouts demo app and Nginx Ingress Control
  1. Click on the `Create` button  to create argo rollout application
     ![screen3](../assets/createapp-2.jpg)
  1. Click on the `Sync` button within the application to deploy
+ 1. View the Depo app at: http://localhost:81
