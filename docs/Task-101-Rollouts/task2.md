@@ -1,1 +1,0 @@
-Deploy demo app (Canary)

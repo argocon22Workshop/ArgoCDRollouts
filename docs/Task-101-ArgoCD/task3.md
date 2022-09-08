@@ -1,19 +1,8 @@
-<<<<<<< HEAD
-### Declarative Setup
-
-Argo CD applications, projects and settings can be defined declaratively using Kubernetes manifests. Argo CD comes with its own crd that can be stored in github repo, and applied in a target cluster using kubectl or  using Argo CD.
-
-To setup declarative, you need to define the Application manifest, which uses your source repo.
-
-1. Fork [ArgoCon22 Repo](https://github.com/argocon22Workshop/ArgoCDRollouts)
-1. Clone the forked repo git clone git@github.com:<username>/ArgoCDRollouts.git
-=======
 ### Declarative Setup (GitOps)
 
 Argo CD applications, projects and settings can be defined declaratively using Kubernetes manifests. Argo CD comes with its own crd that can be stored in github repo, and applied in a target cluster using kubectl or  using Argo CD.
 To setup declarative, you need to define the Application manifest, which uses your source repo.
 
->>>>>>> 8100eb89 (Finish up task 2)
 1. Edit [manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml) replace with your Github username that you forked the repo too.
 1. Deploy the app using Application manfest. Username: admin Password: from command above
     ```
