@@ -72,5 +72,4 @@ Set the demo app error rate back to 0% and retry the rollout.
 
 You can retry the rollout via CLI `kubectl argo rollouts retry rollout istio-host-split -n argo-rollouts-istio` or via the UI retry button. 
 
-#### Rembember to promote pass the first pause.
->>>>>>> 8100eb89 (Finish up task 2)
+#### Remember to promote pass the first pause.
