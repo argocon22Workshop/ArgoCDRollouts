@@ -1,4 +1,20 @@
-### 1. Trigger rollout by modifying the image to red
+### Deployment Strategies
+
+Argo Rollouts supports different deployment strategies such as:
+
+- Blue-green deployments
+- Canary deployments
+
+Check the main Argo Rollouts documentation to learn more about the
+supported [deployment strategies][1]
+
+In this exercise we will deploy an application using the canary strategy
+
+     > A canary rollout is a deployment strategy where the operator
+     > releases a new version of their application to a small percentage
+     > of the production traffic.
+
+#### Trigger rollout by modifying the image to red
 
 1. Within your forked repo navigate to the `manifests/ArgoCD101-RolloutsDemoApp/canary.yaml` file and edit the 
 image to `ghcr.io/argocon22workshop/rollouts-demo:red` and commit the change and push.
@@ -22,3 +38,5 @@ we manually unpause the rollout. We will do this in the next step.
 6. Go into the ArgoCD UI and look for the rollout resource you will see the three vertical dots you can click. 
 Under that menu there will be a `resume` option click that and then go watch the rollouts demo app as it gradually increases
 traffic to the canary.
+
+[1]: https://argoproj.github.io/argo-rollouts/concepts/#deployment-strategies
