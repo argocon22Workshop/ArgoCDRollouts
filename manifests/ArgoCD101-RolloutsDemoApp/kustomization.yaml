@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - canary.yaml
+  - nginx-ingress.yaml
 
 configurations:
   - https://argoproj.github.io/argo-rollouts/features/kustomize/rollout-transform.yaml
