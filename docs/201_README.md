@@ -9,6 +9,7 @@
 Fork this repo then run the command below changing `<username>` to your GitHub username.
 
 ```sh
+USERNAME="<username>"
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
