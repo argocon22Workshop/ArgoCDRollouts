@@ -61,7 +61,7 @@ kind: Service
 metadata:
   name: canary-demo
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 8178
       targetPort: http
