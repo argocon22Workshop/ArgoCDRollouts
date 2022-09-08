@@ -6,7 +6,7 @@
 
 1. Edit  [manifest/ArgoCD101-GuestbookManifests/kustomization.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookApplicationManifests/kustomization.yaml#L5) comment out `service.yaml`
 1. Commit the changes to your fork repo.
-1. Login into ArgoCD using the user id `admin` and `password` from the previous [step](101_README.md#username-admin-password-run-command-below).
+1.  Login into ArgoCD using the user id `admin` and `password`.
     1. Go to the application and click on the `APP DIFF` button.
     1.  The service object marked in red needs to be pruned (deleted).
     1. Select the sync with prune option, then apply the sync operation.
