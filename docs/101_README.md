@@ -4,51 +4,51 @@
 
 ### 1. Install prerequisites
 
- For the 101 session we will require Docker Desktop, Homebrew, and the Argo CLIs.
+For the 101 session we will require:
 
- 1. Install Docker for Desktop by following the instructions on the [Docker Desktop](https://docs.docker.com/get-started/#download-and-install-docker) page.
+- Docker Desktop
+- Homebrew
+- Argo CLIs.
 
- 1. Install homebrew via the following command:
+#### 1.1 Install Docker Desktop
 
-     ```sh
-     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-     ```
+Install Docker for Desktop by following the instructions on the [Docker Desktop](https://docs.docker.com/get-started/#download-and-install-docker) page.
+
+#### 1.2 Install Homebrew
+
+If you don't have Homebrew already available you can install it via the following command:
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+ ```
     
- 1. Install the Argo CD and Argo Rollouts CLIs
+#### 1.3 Install Argo CD and Argo Rollouts CLIs
 
-     ```sh
-     brew install argocd
-     brew install argoproj/tap/kubectl-argo-rollouts
-     ```
+To install Argo CD and Argo Rollouts CLIs, run the following commands:
 
- 1. Check the previous steps by running [`scripts/prereq-check.sh`](../scripts/prereq-check.sh) found in this repo.
+```sh
+brew install argocd
+brew install argoproj/tap/kubectl-argo-rollouts
+```
+
+#### 1.4 Verify installation
+
+Check if the prereqs steps are met by running the following script
+provided in this repo:
+
+```bash
+<REPO_ROOT>/scripts/prereq-check.sh
+```
     
-### 2. Install Argo CD and log in
+### 2. Exercises
 
-```sh
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-```
 
-#### 2.1 Retrieve the initial admin password
+#### ArgoCD Exercises
 
-```sh
-kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
-```
+- [Exercise 1](exercise-101-argocd/exercise1.md) - Install ArgoCD
 
-**Save the password somewhere, as you will need it later in the workshop exercise.
 
-#### 2.2 Load the UI
-
-Run the following command to access the UI in a new terminal window:
-
-```sh
-kubectl port-forward svc/argocd-server -n argocd 8080:443
-```
-
-Visit the UI at [`https://localhost:8080`](https://localhost:8080).
-
-Log in with username `admin` and the password retrieved above.
+#### ArgoRollouts Exercises
 
 ### 3. Set up a simple test application
 
