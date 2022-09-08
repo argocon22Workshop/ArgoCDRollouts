@@ -42,9 +42,8 @@
 
 
 
-1. Setup guestbook application via GitOps
-
-    Fork this repo first then replace `<username>` with your GitHub username in the commands below.
+1. Setup guestbook application
+    -   Fork this repo first then replace `<username>` with your GitHub username in the commands below.
     ```
     argocd --port-forward --port-forward-namespace argocd login
     argocd --port-forward --port-forward-namespace argocd repo add https://github.com/<username>/ArgoCDRollouts
@@ -54,9 +53,9 @@
 
 1. ArgoCD Exercises:
     - Exercises is based on Argo CD and Gitops concepts. The purpose of this is to familiarize you with the  interface of ArgoCD & Argo CLI.
-        - [Task 1](Task-101-ArgoCD/task1.md) -  GitOps
+        - [Task 1](Task-101-ArgoCD/task1.md) -  Application Sync Status
         - [Task 2](Task-101-ArgoCD/task2.md) -  Sync Policy & Options
-        - [Task 3](Task-101-ArgoCD/task3.md)  - Declarative-setup
+        - [Task 3](Task-101-ArgoCD/task3.md)  - Declarative Setup (GitOps)
 
 1. Setup Argo Rollouts Controller
     ```
@@ -75,16 +74,15 @@
 1. Argo Rollout Exercises
     - [Deployment Strategies](https://argoproj.github.io/argo-rollouts/concepts/#deployment-strategies)
         - [Task 1](Task-101-Rollouts/task1.md) - BlueGreen
-        - [Task 2](Task-101-Rollouts/task2.md) - Canary
-        ```
+        >
         BlueGreen enables the developers to run tests against the new version of the application before switching the live traffic over to the new version of the application, whereas canary deployment exposes a subset of users to the new version of the application while serving the rest of the traffic to the previous version.
-        ```
-1. ArgoCD and ArgoRollouts integrations
-  [Custom Health Check](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/#custom-health-checks)
-  - Define a Custom Health Check in argocd-cm ConfigMap
-  - Contribute a Custom Health Check
-    -  Predefined [HealthCheck](/)
 
+1. ArgoCD and ArgoRollouts integrations
+    - [Custom Health Check](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/#custom-health-checks)
+    - [Custom Action](https://argo-cd.readthedocs.io/en/stable/operator-manual/resource_actions/#custom-resource-actions)
+        - Define a Custom Health Check in argocd-cm ConfigMap
+        - Contribute to resource customization
+            - https://github.com/argoproj/argo-cd/tree/master/resource_customizations
 #### Argocd Project documentation
 - [ArgoCD Documentation](https://argo-cd.readthedocs.io/)
 - [Argo Rollout](https://argoproj.github.io)
