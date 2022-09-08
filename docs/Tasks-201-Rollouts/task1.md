@@ -27,7 +27,7 @@ Now you should see the new color red at roughly 50% of the traffic.
 kubectl argo rollouts promote --full istio-host-split -n argo-rollouts-istio
 ```
 
-#### 4. Bonus - You can now perform these same steps using the Argo Rollouts UI
+#### 4. Perform these same steps using the Argo Rollouts UI
 
 If you do not have the UI running locally yet run the following command:
 ```
