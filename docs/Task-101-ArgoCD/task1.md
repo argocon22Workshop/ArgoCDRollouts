@@ -4,8 +4,8 @@ By default, Argo CD polls Git repositories every three minutes to detect changes
 - Compare the desired state with the live state.
 
 Argo CD Controller:
-If both states are the same, do nothing and mark the application as synced.
-If states are different mark the application as `OutOfSync`.
+- If both states are the same, do nothing and mark the application as synced.
+- If states are different mark the application as `OutOfSync`.
 
 
 1. Fork [ArgoCon22 Repo](https://github.com/argocon22Workshop/ArgoCDRollouts)
@@ -20,9 +20,9 @@ If states are different mark the application as `OutOfSync`.
     1. Click on  `SYNC` button (Select the default options and synchronize all manifests) on the  application UI to apply the desired manifest.
     1. Once it's deployed, Application is marked as healthy and the number of pods will increased to 3.
 - Optional Exercise:
-    - Change the replica count to one without making any changes to the source code of Git?
+    - Update the replica count to one without making any changes to the source code of Git?
             <details>
             <summary>Click to view solution</summary>
-                1. In the ArgoCD UI, click on `deploy` resource. Edit the `live manifest` and change the replica count to one.  \
+                1. In the ArgoCD UI, click on `deploy` resource. Edit the `live manifest` and set the replica count to one and save it.   \
                 2. A total of 2 pods will terminate and the application will be marked out of sync.  \
             </details>
