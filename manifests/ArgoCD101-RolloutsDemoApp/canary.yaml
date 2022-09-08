@@ -29,8 +29,14 @@ spec:
     canary:
       canaryService: canary-demo-preview
       steps:
-        - setWeight: 50
+        - setWeight: 20
         - pause: {}
+        - setWeight: 40
+        - pause: {duration: 10}
+        - setWeight: 60
+        - pause: {duration: 10}
+        - setWeight: 80
+        - pause: {duration: 10}
 
 ---
 
@@ -39,10 +45,9 @@ kind: Service
 metadata:
   name: canary-demo-preview
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-    - port: 80
-      nodePort: 32567
+    - port: 8178
       targetPort: http
       protocol: TCP
       name: http
@@ -58,8 +63,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 80
-      nodePort: 32568
+    - port: 8178
       targetPort: http
       protocol: TCP
       name: http
