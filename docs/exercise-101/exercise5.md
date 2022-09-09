@@ -1,4 +1,4 @@
-### Declarative Setup (GitOps)
+### Deploy an Application with Gitops
 
 Argo CD applications, projects and settings can be defined declaratively using Kubernetes manifests. Argo CD comes with its own crd that can be stored in github repo, and applied in a target cluster using kubectl or  using Argo CD.
 To setup declarative, you need to define the Application manifest, which uses your source repo.
