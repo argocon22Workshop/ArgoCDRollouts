@@ -1,4 +1,5 @@
 ### Application Sync Status
+
 By default, Argo CD polls Git repositories every three minutes to detect changes to the manifests.
 - Fetch the latest Git state from the repositories.
 - Compare the desired state with the live state.
@@ -6,7 +7,6 @@ By default, Argo CD polls Git repositories every three minutes to detect changes
 Argo CD Controller:
 - If both states are the same, do nothing and mark the application as synced.
 - If states are different mark the application as `OutOfSync`.
-
 
 1. Fork [ArgoCon22 Repo](https://github.com/argocon22Workshop/ArgoCDRollouts)
 1. Clone the forked repo git clone git@github.com:<username>/ArgoCDRollouts.git

@@ -1,15 +1,15 @@
-### Deploy an Application with Gitops
+### Using with Argo CD CLI
 
-In this exercise we will deploy our first application in ArgoCD using gitops.
+In this exercise we will deploy our first application using Argo CD CLI.
 
 #### Set up a simple test application
 
 Fork this repo first then replace `<username>` with your GitHub username in the first command below.
 
 ```sh
-USERNAME="<username>"
+WORKSHOP_USER="<username>"
 argocd --port-forward --port-forward-namespace argocd login
-argocd --port-forward --port-forward-namespace argocd repo add "https://github.com/$USERNAME/ArgoCDRollouts"
-argocd --port-forward --port-forward-namespace argocd app create guestbook --repo "https://github.com/$USERNAME/ArgoCDRollouts" --path manifests/ArgoCD101-GuestbookApplicationManifests --dest-namespace default --dest-server https://kubernetes.default.svc
+argocd --port-forward --port-forward-namespace argocd repo add "https://github.com/$WORKSHOP_USER/ArgoCDRollouts"
+argocd --port-forward --port-forward-namespace argocd app create guestbook --repo "https://github.com/$WORKSHOP_USER/ArgoCDRollouts" --path manifests/ArgoCD101-GuestbookManifests --dest-namespace default --dest-server https://kubernetes.default.svc
 argocd --port-forward --port-forward-namespace argocd app sync guestbook
 ```

@@ -45,10 +45,10 @@ provided in this repo:
 These exercises are based on Argo CD and GitOps concepts. The purpose of this is to familiarize you with the Argo CD UI and CLI.
 
 - [Exercise 1](exercise-101/exercise1.md) - Install Argo CD
-- [Exercise 2](exercise-101/exercise2.md) - Deploy an Application with Gitops
+- [Exercise 2](exercise-101/exercise2.md) - Using Argo CD CLI
 - [Exercise 3](exercise-101/exercise3.md) - Application Sync Status
 - [Exercise 4](exercise-101/exercise4.md) - Sync Policy & Options
-- [Exercise 5](exercise-101/exercise5.md) - Declarative Setup (Gitops)
+- [Exercise 5](exercise-101/exercise5.md) - Deploy an Application with Gitops
 
 ### ArgoRollouts Exercises
 
