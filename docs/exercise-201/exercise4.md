@@ -21,12 +21,12 @@ sum(irate(istio_requests_total{destination_service_name=~"{{args.service-name}}"
 2. The Analysis defined in the rollout is a background analysis. This means that the rollout will not wait for the analysis to complete 
 before progressing. This is useful for cases where you want to run an analysis in the background to gather metrics, but you don't 
 want to block the rollout from progressing. We will start this background analysis on step 2 of the rollout and pass an 
-argument to the analysis run of the canary service name.
+argument to the analysis run of the canary service name to be used in the query.
 ```
   analysis:
     templates:
       - templateName: success-rate
-    startingStep: 2 # delay starting analysis run until setWeight: 35%
+    startingStep: 3 # delay starting analysis run until setWeight: 35%
     args:
       - name: service-name
         value: istio-host-split-canary
@@ -36,8 +36,8 @@ argument to the analysis run of the canary service name.
 steps:
   - setWeight: 25
   - pause: {}
-  - setWeight: 35 # Analysis will start here
-  - pause:
+  - setWeight: 35
+  - pause: # Analysis will start here
       duration: 10s
   - setWeight: 50
   - pause:

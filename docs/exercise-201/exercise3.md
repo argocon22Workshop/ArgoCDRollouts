@@ -16,6 +16,8 @@ steps:
 ```
 
 #### 2. Promote the rollout to the next step
+Because we have executed a rollout and are now in the middle of we are currently at the second step. This
+is an indefinite pause. We will now move on to the next step by promoting using the CLI command below.
 ```
 kubectl argo rollouts promote istio-host-split -n argo-rollouts-istio
 ```
@@ -23,6 +25,7 @@ kubectl argo rollouts promote istio-host-split -n argo-rollouts-istio
 Now you should see the new color red at roughly 50% of the traffic.
 
 #### 3. Next we will fully promote the rollout to 100% of the traffic
+We will now use full promot to skip going to the 75% step and go strait to fully deploying the new color.
 ```
 kubectl argo rollouts promote --full istio-host-split -n argo-rollouts-istio
 ```

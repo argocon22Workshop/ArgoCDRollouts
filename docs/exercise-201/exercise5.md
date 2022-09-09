@@ -30,6 +30,9 @@ Notice how we are able to control the percentage that we mirror as well as the s
 Rollout supports a full array of filters you can use to control what http routes get mirrored. You can read more
 about that [here](https://argoproj.github.io/argo-rollouts/features/traffic-management/#traffic-routing-mirroring-traffic-to-canary)
 
+We need to be able to control the paths that get mirrored because we do not want to mirror paths that modify data because
+it could cause undesired modifications to the state of the app such as creating duplicate entries.
+
 
 #### 3. Apply a new image to the rollout
 Start by viewing the logs of all the pods within the deployment.
@@ -65,7 +68,7 @@ Now lets look at the demo app web UI found at http://localhost we can see that w
 we do not send the response back to the end users. This allows us to fully test the canary with read only traffic looking for an
 increase in error rates without the end user ever noticing anything.
 
-#### 5. Bonus - Modify rollout to add background analysis to abort when mirrored traffic has high error rate
+#### 5. Modify rollout to add background analysis to abort when mirrored traffic has high error rate
 
 Use the following image during the rollout to simulate bad requests
 ```
