@@ -27,7 +27,7 @@
 <li>Run the below commands:
 
 ```sh
-argocd --port-forward-namespace argocd login
+argocd --port-forward --port-forward-namespace argocd login
 argocd --port-forward-namespace argocd app set guestbook  --sync-policy automated
 ```
 </li>
