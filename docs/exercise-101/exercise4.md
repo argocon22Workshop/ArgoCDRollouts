@@ -23,19 +23,26 @@
 <details>
 <summary>Click to view solution</summary>
 
-<ol>
+<ul>
 <li>Run the below commands:
-        argocd --port-forward-namespace argocd login
-        argocd --port-forward-namespace argocd app set guestbook  --sync-policy automated
+
+```sh
+argocd --port-forward-namespace argocd login
+argocd --port-forward-namespace argocd app set guestbook  --sync-policy automated
+```
 </li>
 <li>Verify the change applied in the application:
+
+```sh
 argocd --port-forward --port-forward-namespace argocd app get guestbook -o yaml
     Output:
                 {
                     "automated": {}
                 }
-If you don't have jq install, check for the above output in your json response.
-</ol>
+
+```
+</li>
+</ul>
 </details>
 
 2. The application can be configured with the various Sync options. Look for these options (Prune Last,Apply Out of Sync Only) in Argo CD UI and try to understand how it changes the sync process.
