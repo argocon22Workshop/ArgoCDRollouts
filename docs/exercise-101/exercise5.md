@@ -17,12 +17,12 @@ argocd --port-forward-namespace argocd app delete guestbook --cascade
 
 ```
 argocd --port-forward --port-forward-namespace argocd login
-argocd --port-forward-namespace argocd app create guestbook-gitops --repo "https://github.com/$WORKSHOP_USER/ArgoCDRollouts" --path manifest/ArgoCD101-GuestbookGitOps --dest-namespace default --dest-server https://kubernetes.default.svc
+argocd --port-forward-namespace argocd app create guestbook-gitops --repo "https://github.com/$WORKSHOP_USER/ArgoCDRollouts" --path manifests/ArgoCD101-GuestbookGitOps --dest-namespace default --dest-server https://kubernetes.default.svc
 ```
 
 1. Sync the application
 ```
-argocd --port-forward-namespace argocd app sync guestbook
+argocd --port-forward-namespace argocd app sync guestbook-gitops
 ```
 
 #### Optional Exercise
@@ -39,12 +39,11 @@ Modify the `manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` file
 <li>Add the below spec to manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml
 
 ```yaml
-# Sync policy
-syncPolicy:
+spec:
+  syncPolicy:
     automated:
-    prune: true
-    selfHeal: true
-
+      prune: true
+      selfHeal: true
 ```
 </li>
 <li>Commit the change to your own forked repo and push to the main branch.</li>

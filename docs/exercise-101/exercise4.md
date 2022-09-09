@@ -6,7 +6,7 @@
     - auto-prune
     - auto-sync
 
-#### Tasks
+#### Exercises
 
 1. Edit  [manifest/ArgoCD101-GuestbookManifests/kustomization.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookApplicationManifests/kustomization.yaml#L5) comment out `service.yaml`
 1. Commit the changes to your fork repo.
