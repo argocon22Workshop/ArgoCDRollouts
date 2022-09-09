@@ -29,8 +29,10 @@ Update the replica count to one without making any changes to the source code of
 
 <details>
 <summary>Click to view solution</summary>
-    1. In the ArgoCD UI, click on `deploy` resource. Edit the `live manifest` and set the replica count to one and save it.   \
-    2. A total of 2 pods will terminate and the application will be marked out of sync.  \
+    <ol>
+    <li>In the ArgoCD UI, click on `deploy` resource. Edit the `live manifest` and set the replica count to one and save it.</li>
+    <li>A total of 2 pods will terminate and the application will be marked out of sync.</li>
+    </ol>
 </details>
 
 [1]: exercise1.md
