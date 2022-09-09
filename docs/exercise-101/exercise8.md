@@ -40,3 +40,5 @@ Under that menu there will be a `resume` option click that and then go watch the
 traffic to the canary.
 
 [1]: https://argoproj.github.io/argo-rollouts/concepts/#deployment-strategies
+
+7. Once you have completed the exercise you can delete the application by clicking on the `Delete` button in the Argo CD UI.
