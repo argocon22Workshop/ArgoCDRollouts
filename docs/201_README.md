@@ -54,7 +54,7 @@ dashboard.
 
 ### 2. Try some Argo Rollouts exercises
 
-- [Exercise 2.1](Tasks-201-Rollouts/task1.md) - Perform a canary rollout with Istio
-- [Exercise 2.2](Tasks-201-Rollouts/task2.md) - Perform a canary rollout with analysis and auto rollback
-- [Exercise 2.3](Tasks-201-Rollouts/task3.md) - Perform a canary rollout with a traffic mirroring step
-- [Exercise 2.4](Tasks-201-Rollouts/task4.md) - Perform a canary rollout with a traffic header step
+- [Exercise 2.1](exercise-201/exercise3.md) - Perform a canary rollout with Istio
+- [Exercise 2.2](exercise-201/exercise4.md) - Perform a canary rollout with analysis and auto rollback
+- [Exercise 2.3](exercise-201/exercise5.md) - Perform a canary rollout with a traffic mirroring step
+- [Exercise 2.4](exercise-201/exercise6.md) - Perform a canary rollout with a traffic header step
