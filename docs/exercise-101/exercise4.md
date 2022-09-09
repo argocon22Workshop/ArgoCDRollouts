@@ -35,11 +35,11 @@ argocd --port-forward-namespace argocd app set guestbook  --sync-policy automate
 
 ```sh
 argocd --port-forward --port-forward-namespace argocd app get guestbook -o yaml
-    Output:
-                {
-                    "automated": {}
-                }
-
+argocd --port-forward-namespace argocd app get guestbook
+Output:
+...
+Sync Policy:        Automated
+...
 ```
 </li>
 </ul>
@@ -49,11 +49,11 @@ argocd --port-forward --port-forward-namespace argocd app get guestbook -o yaml
 
 <details>
 <summary>Click to view solution</summary>
-<ol>
+<ul>
 <li>Edit the application on the ArgoCD UI.</li>
 <li>Select and Save the Sync option you want to enable in the application.</li>
 <li>Usually in production, you will use CLI or add annotation to your Gitops application manifest.</li>
-</ol>
+</ul>
 </details>
 
 ### References
