@@ -2,7 +2,7 @@
 
 ### 1. Install prerequisites
 
-Only run th rough step 1.1 if you did not attend the 101 workshop.
+Only run through step 1.1 if you did not attend the 101 workshop.
 
 #### 1.1. Prerequisites (if you did not attend)
 
