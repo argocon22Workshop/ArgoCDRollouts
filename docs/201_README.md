@@ -29,7 +29,7 @@ argocd --port-forward --port-forward-namespace argocd app sync argo-rollouts
 
 ```sh
 brew install istioctl
-istioctl install --set profile=demo -y --set values.global.hub=gcr.io/istio-testing --set values.global.tag=1.16-alpha.8a03fdd12a21ce72ec0ecbee21fe0aa07ad835f4
+istioctl install --set profile=demo -y --set values.global.tag=1.15.0
 kubectl create namespace argo-rollouts-istio
 kubectl label namespace argo-rollouts-istio istio-injection=enabled
 ```
