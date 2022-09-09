@@ -52,9 +52,9 @@ if it does not try quiting and restarting docker for desktop. You can also try r
 Now visit http://localhost to view the demo app and run `kubectl argo rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
 dashboard.
 
-### 2. Try some Argo Rollouts exercises
+### 3. Try some Argo Rollouts exercises
 
-- [Exercise 2.1](exercise-201/exercise3.md) - Perform a canary rollout with Istio
-- [Exercise 2.2](exercise-201/exercise4.md) - Perform a canary rollout with analysis and auto rollback
-- [Exercise 2.3](exercise-201/exercise5.md) - Perform a canary rollout with a traffic mirroring step
-- [Exercise 2.4](exercise-201/exercise6.md) - Perform a canary rollout with a traffic header step
+- [Exercise 3](exercise-201/exercise3.md) - Perform a canary rollout with Istio
+- [Exercise 4](exercise-201/exercise4.md) - Perform a canary rollout with analysis and auto rollback
+- [Exercise 5](exercise-201/exercise5.md) - Perform a canary rollout with a traffic mirroring step
+- [Exercise 6](exercise-201/exercise6.md) - Perform a canary rollout with a traffic header step
