@@ -15,4 +15,4 @@ In this exercise we will deploy Argo Rollouts demo app and Nginx Ingress Control
 
 1. Click on the `Sync` button within the application to deploy
 
-1. View the Depo app at: http://localhost:81
+1. View the Demo app at: http://localhost:81

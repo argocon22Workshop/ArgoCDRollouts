@@ -5,7 +5,7 @@ To setup declarative, you need to define the Application manifest, which uses yo
 
 
 1. Edit [manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml) replace with your Github username that you forked the repo too.
-1. Deploy the app using Application manfest using the user id `admin` and `password`.
+1. Deploy the app using Application manifest using the user id `admin` and `password`.
     ```
     Delete any app with the name guestbook. The app will be recreated using the Application manifest file.
     argocd --port-forward --port-forward-namespace argocd app delete guestbook --cascade
