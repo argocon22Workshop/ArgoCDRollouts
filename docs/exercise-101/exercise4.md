@@ -34,7 +34,6 @@ argocd --port-forward-namespace argocd app set guestbook  --sync-policy automate
 <li>Verify the change applied in the application:
 
 ```sh
-argocd --port-forward --port-forward-namespace argocd app get guestbook -o yaml
 argocd --port-forward-namespace argocd app get guestbook
 Output:
 ...
