@@ -55,7 +55,7 @@ github_token=$(pbpaste)
 echo '{"apiVersion": "v1", "kind": "Secret", "metadata": {"name": "github-token"}, "stringData": {"token": "'$github_token'"}}' | kubectl apply -n argocd -f - 
 ```
    
-#### 2. Install the ApplicationSet
+#### 3. Install the ApplicationSet
 
 1. (Optional) Change `crenshaw-dev` in the `spec.template.spec.source.repoURL` field of [manifest/ArgoCD201-ApplicationSets/appset.yaml](../../manifests/ArgoCD201-ApplicationSets/appset.yaml) to your GitHub username. (Only do this if you also did so in section 1.)
 
@@ -73,7 +73,7 @@ echo '{"apiVersion": "v1", "kind": "Secret", "metadata": {"name": "github-token"
    kubectl get appset -n argocd
    ```
 
-#### 3. List Applications under the `appsets` project
+#### 4. List Applications under the `appsets` project
 
 ```shell
 argocd app list --project appset
@@ -82,7 +82,7 @@ argocd app list --project appset
 The list should be empty. Since you don't have any open PRs in your repo, the ApplicationSet's generator will not
 produce any parameters, and the Application template in the ApplicationSet will be applied to the cluster zero times.
 
-#### 4. Open a PR in your fork of `ArgoCDRollouts`
+#### 5. Open a PR in your fork of `ArgoCDRollouts`
 
 ```sh
 git checkout -b my-test-branch
@@ -93,10 +93,12 @@ git push --set-upstream origin
 
 The last command should print a link which you can use to open a PR.
 
+Be sure to open the PR **against your fork**. By default, it will open against the original repo.
+
 Add a label called `preview` to your PR. The [appset](../../manifests/ArgoCD201-ApplicationSets/appset.yaml) filters
 by that label.
 
-### 4. List Applications again
+### 6. List Applications again
 
 ```shell
 argocd app list --project appset
