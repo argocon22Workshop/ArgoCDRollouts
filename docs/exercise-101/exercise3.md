@@ -12,8 +12,6 @@ Argo CD Controller:
 
 #### Exercises
 
-1. Fork [ArgoCon22 Repo](https://github.com/argocon22Workshop/ArgoCDRollouts)
-1. Clone the forked repo `git clone git@github.com:$WORKSHOP_USER/ArgoCDRollouts.git`
 1. Explore the manifest used in this task found [here](https://github.com/argocon22Workshop/ArgoCDRollouts/tree/main/manifests/ArgoCD101-GuestbookManifests).
 1. Edit [manifest/ArgoCD101-GuestbookManifests/deployment.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookManifests/deployment.yaml) change the replica count to 3.
 1. Commit the change to your own fork repo.

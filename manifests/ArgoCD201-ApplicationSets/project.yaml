@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: appset
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  sourceRepos:
+    # Feel free to change crenshaw-dev to your username. If you do so, you'll need to change it in the `spec.template`
+    # section of appset.yaml as well.
+    - "https://github.com/crenshaw-dev/ArgoCDRollouts.git"
+  destinations:
+    - namespace: default
+      server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+    - group: 'apps'
+      kind: Deployment
+    - group: 'apps'
+      kind: ReplicaSet
+    - group: 'apps'
+      kind: Pod
