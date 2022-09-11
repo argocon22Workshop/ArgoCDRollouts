@@ -25,4 +25,4 @@ spec:
         path: "."
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "argocd"
+        namespace: "default"

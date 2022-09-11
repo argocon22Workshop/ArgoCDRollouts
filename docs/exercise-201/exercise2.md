@@ -53,7 +53,7 @@ the user can simply edit the ApplicationSet to use a different project.
 #### 3. List Applications under the `appsets` project
 
 ```shell
-argocd app list --project appsets
+argocd app list --project appset
 ```
 
 The list should be empty. Since you don't have any open PRs in your repo, the ApplicationSet's generator will not
@@ -76,7 +76,7 @@ by that label.
 ### 4. List Applications again
 
 ```shell
-argocd app list --project appsets
+argocd app list --project appset
 ```
 
 The list should contain an Application corresponding to your new PR.
