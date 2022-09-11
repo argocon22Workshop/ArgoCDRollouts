@@ -8,6 +8,8 @@ For the 101 session we will require:
 - Homebrew
 - Argo CLIs.
 
+You will also need to fork and clone this repo.
+
 ### 1.1 Install Docker Desktop
 
 Install Docker for Desktop by following the instructions on the [Docker Desktop](https://docs.docker.com/get-started/#download-and-install-docker) page.
@@ -37,7 +39,25 @@ provided in this repo:
 ```bash
 <REPO_ROOT>/scripts/prereq-check.sh
 ```
-    
+
+### 1.5 Fork this repo
+
+1. Fork [this repo](https://github.com/argocon22Workshop/ArgoCDRollouts) by clicking that link and then clicking the 
+   "Fork" button near the top-right of the GitHub page.
+
+2. Clone the forked repo.
+
+   ```sh
+   WORKSHOP_USER=<your GitHub username here>
+   git clone "https://github.com/$WORKSHOP_USER/ArgoCDRollouts.git"
+   ```
+
+3. Navigate to the root of the clone in your terminal.
+
+   ```sh
+   cd ArgoCDRollouts
+   ```
+
 ## 2. Exercises
 
 ### ArgoCD Exercises
