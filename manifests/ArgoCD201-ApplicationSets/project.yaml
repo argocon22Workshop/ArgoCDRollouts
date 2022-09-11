@@ -18,5 +18,5 @@ spec:
       kind: Deployment
     - group: 'apps'
       kind: ReplicaSet
-    - group: 'apps'
+    - group: ''
       kind: Pod

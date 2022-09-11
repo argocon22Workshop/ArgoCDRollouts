@@ -32,6 +32,29 @@ the user can simply edit the ApplicationSet to use a different project.
    kubectl apply -n argocd -f manifests/ArgoCD201-ApplicationSets/project.yaml
    ```
    
+#### 2. Create a personal access token
+
+The ApplicationSet controller makes a lot of GitHub API requests. To avoid hitting the rate limit, use an API token.
+
+1. Go to [New personal access token](https://github.com/settings/tokens/new) on GitHub.
+
+2. Use the following details:
+
+   Name: `ApplicationSet`
+   
+   Expiration: `7 days`
+
+   Select scopes: `public_repo` (only this one)
+
+3. Click "Generate token" and copy the token into your clipboard
+
+4. Create a new Secret to hold the token
+
+```sh
+github_token=$(pbpaste)
+echo '{"apiVersion": "v1", "kind": "Secret", "metadata": {"name": "github-token"}, "stringData": {"token": "'$github_token'"}}' | kubectl apply -n argocd -f - 
+```
+   
 #### 2. Install the ApplicationSet
 
 1. (Optional) Change `crenshaw-dev` in the `spec.template.spec.source.repoURL` field of [manifest/ArgoCD201-ApplicationSets/appset.yaml](../../manifests/ArgoCD201-ApplicationSets/appset.yaml) to your GitHub username. (Only do this if you also did so in section 1.)

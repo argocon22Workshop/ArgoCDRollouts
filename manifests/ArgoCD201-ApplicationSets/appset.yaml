@@ -12,6 +12,9 @@ spec:
           repo: ArgoCDRollouts
           labels:
             - preview
+          tokenRef:
+            secretName: github-token
+            key: token
   template:
     metadata:
       name: "{{number}}-preview"
@@ -22,7 +25,9 @@ spec:
         # the repo.
         repoURL: "https://github.com/crenshaw-dev/ArgoCDRollouts"
         targetRevision: "{{branch}}"
-        path: "."
+        path: "manifests/ArgoCD201-ApplicationSets/example-app"
       destination:
         server: "https://kubernetes.default.svc"
         namespace: "default"
+      syncPolicy:
+        automated: {}
