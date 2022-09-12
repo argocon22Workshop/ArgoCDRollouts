@@ -4,7 +4,7 @@ In this exercise we will deploy our first application using Argo CD CLI.
 
 #### Set up a simple test application
 
-Fork this repo first then replace `<username>` with your GitHub username in the first command below.
+Replace `<username>` with your GitHub username in the first command below.
 
 ```sh
 WORKSHOP_USER="<username>"

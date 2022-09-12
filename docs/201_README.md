@@ -8,7 +8,7 @@ Only run through step 1.1 if you did not attend the 101 workshop.
 
 Make sure you have the Workshop prerequisites from [101 session](101_README.md) installed section 1.
 
-Fork this repo then run the command below changing `<username>` to your GitHub username.
+Run the command below changing `<username>` to your GitHub username.
 
 ```sh
 kubectl create namespace argocd
