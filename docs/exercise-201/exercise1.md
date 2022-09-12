@@ -118,6 +118,6 @@ kubectl apply -f manifests/ArgoCD201-ArgoCDRBAC/argocd-rbac-cm.yaml
 ```
 </li>
 <li>Try to create an Argo CD project running the same command from step 2. No error should be returned this time.
-<li>Navigate in Argo CD UI and see the newly created project listing under `settings > Projects`.</li>
+<li>Navigate in Argo CD UI and see the newly created project listing under "Settings > Projects".</li>
 </ol>
 </details>
