@@ -19,10 +19,10 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 # Username: admin password: from output of command above
 WORKSHOP_USER="<username>"
-argocd --port-forward --port-forward-namespace argocd login
-argocd --port-forward --port-forward-namespace argocd repo add "https://github.com/$WORKSHOP_USER/ArgoCDRollouts"
-argocd --port-forward --port-forward-namespace argocd app create argo-rollouts --repo "https://github.com/$WORKSHOP_USER/ArgoCDRollouts" --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
-argocd --port-forward --port-forward-namespace argocd app sync argo-rollouts
+argocd --port-forward-namespace argocd login
+argocd --port-forward-namespace argocd repo add "https://github.com/$WORKSHOP_USER/ArgoCDRollouts"
+argocd --port-forward-namespace argocd app create argo-rollouts --repo "https://github.com/$WORKSHOP_USER/ArgoCDRollouts" --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
+argocd --port-forward-namespace argocd app sync argo-rollouts
 ```
 
 #### 1.2. Install Istio
@@ -39,18 +39,6 @@ kubectl label namespace argo-rollouts-istio istio-injection=enabled
 kubectl apply --server-side -f manifests/prometheus/upstream/setup
 kubectl apply -k manifests/prometheus/
 ```
-
-#### 1.4 Install Demo App
-
-```sh
-kustomize build manifests/ArgoCD201-RolloutsDemoCanaryIstio/ | kubectl apply -f -
-```
-
-Run `kubectl get services -n istio-system | grep istio-ingressgateway` and wait for `<pending>` to switch to localhost
-if it does not try quiting and restarting docker for desktop. You can also try resetting docker for desktops kubernetes cluster.
-
-Now visit http://localhost to view the demo app and run `kubectl argo rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
-dashboard.
 
 ### 3. Try some Argo Rollouts exercises
 
