@@ -51,8 +51,12 @@ if it does not try quiting and restarting docker for desktop. You can also try r
 
 Now visit http://localhost to view the demo app and run `kubectl argo rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
 dashboard.
+### 2. Advance Argo CD exercises
 
-### 3. Try some Argo Rollouts exercises
+- [Exercise 1](exercise-201/exercise1.md) - Configure Users permissions for Argo CD
+- [Exercise 2](exercise-201/exercise2.md) - Create dynamic applications with ApplicationSets
+
+### 3. Advance Argo Rollouts exercises
 
 - [Exercise 3](exercise-201/exercise3.md) - Perform a canary rollout with Istio
 - [Exercise 4](exercise-201/exercise4.md) - Perform a canary rollout with analysis and auto rollback
