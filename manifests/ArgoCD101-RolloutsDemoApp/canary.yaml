@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: canary-demo
-          image: ghcr.io/argocon22workshop/rollouts-demo:blue
+          image: ghcr.io/argocon22workshop/rollouts-demo:red
           imagePullPolicy: Always
           ports:
             - name: http
