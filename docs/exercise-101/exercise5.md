@@ -11,7 +11,7 @@ To setup declarative, you need to define the Application manifest, which uses yo
 ```
 argocd --port-forward-namespace argocd app delete guestbook --cascade
 ```
-1. Edit the file in `manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` and replace the `<username>` with your Github username that you used to fork the repo.
+1. Edit the file in `manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` and replace the `<username>` with your Github username that you used to fork the repo.
 1. Commit the changes and push to the main branch of your forked repo.
 1. Deploy the app using Application manifest using the user id `admin` and `password`.
 
@@ -36,7 +36,7 @@ Modify the `manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` file
 <details>
 <summary>Click to view solution</summary>
 <ol>
-<li>Add the below spec to manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml
+<li>Edit the  manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml and add the following code in the manifest path spec.syncPolicy.
 
 ```yaml
 syncPolicy:
@@ -49,7 +49,6 @@ syncPolicy:
 <li>Apply the new manifest to Argo CD.
 
 ```
-argocd --port-forward --port-forward-namespace argocd login
 argocd --port-forward-namespace argocd app sync guestbook-gitops
 ```
 </li>

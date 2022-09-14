@@ -8,7 +8,7 @@
 
 #### Exercises
 
-1. Edit the file in  `manifest/ArgoCD101-GuestbookManifests/kustomization.yaml` comment out `service.yaml`
+1. Edit the file in  `manifests/ArgoCD101-GuestbookManifests/kustomization.yaml` comment out `service.yaml`
 1. Commit the changes and push to the main branch of your forked repo.
 1. Login into ArgoCD using the user id `admin` and `password` (same credentials used in [exercise1][1]).
 1. Go to the application and click on the `APP DIFF` button(click on Refresh button to see OutOfSync resource)
