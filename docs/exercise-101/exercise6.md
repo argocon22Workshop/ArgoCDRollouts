@@ -1,6 +1,6 @@
 ### Argo Rollouts Setup
 
-In this exercise we will install Argo Rollouts so we can start doing blue-green and canary deployments.
+This exercise involves installing Argo Rollouts in order to begin configuring blue-green and canary deployments.
 
 #### Install Argo Rollouts
 
@@ -10,4 +10,3 @@ kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/rele
 ```
 
 You can now view and sync the application at [https://localhost:8080/applications/argo-rollouts](https://localhost:8080/applications/argo-rollouts).
-

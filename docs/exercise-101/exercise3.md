@@ -12,12 +12,11 @@ Argo CD Controller:
 
 #### Exercises
 
-1. Explore the manifest used in this task found [here](https://github.com/argocon22Workshop/ArgoCDRollouts/tree/main/manifests/ArgoCD101-GuestbookManifests).
-1. Edit [manifest/ArgoCD101-GuestbookManifests/deployment.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookManifests/deployment.yaml) change the replica count to 3.
+1. Edit the file in  `manifests/ArgoCD101-GuestbookManifests/deployment.yaml` change the replica count to 3.
 1. Commit the change to your own fork repo.
 1. Login into ArgoCD UI using the user id `admin` and `password` (same credentials used in [exercise1][1])
-1. Go to the Argo CD application and  click on the `APP DIFF` button.
-1. Take a note of the differences in the ArgoCD application, app will be OutOfSync. The replica count is changed to 3.
+1. Take a note of the differences in the ArgoCD application, app will be OutOfSync (It might take a few minutes for the OutofSync status to appear).
+1. If you click the `APP DIFF` button in the Argo CD application, you will see that the replica count has changed to 3.
 1. Click on  `SYNC` button (Select the default options and synchronize all manifests) on the  application UI to apply the desired manifest.
 1. Once it's deployed, Application is marked as healthy and the number of pods will increased to 3.
 
