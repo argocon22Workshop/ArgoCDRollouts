@@ -39,19 +39,18 @@ Modify the `manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` file
 <li>Add the below spec to manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml
 
 ```yaml
-spec:
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
 ```
 </li>
-<li>Commit the change to your own forked repo and push to the main branch.</li>
+<li>Commit the changes and push to the main branch of your forked repo.</li>
 <li>Apply the new manifest to Argo CD.
 
 ```
 argocd --port-forward --port-forward-namespace argocd login
-argocd --port-forward-namespace argocd app sync guestbook
+argocd --port-forward-namespace argocd app sync guestbook-gitops
 ```
 </li>
 <li>Verify the Sync policy from the ArgoCD UI.</li>
