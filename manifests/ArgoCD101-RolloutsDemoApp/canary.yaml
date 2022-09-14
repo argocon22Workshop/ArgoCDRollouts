@@ -45,7 +45,7 @@ kind: Service
 metadata:
   name: canary-demo-preview
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 8178
       targetPort: http
@@ -61,7 +61,7 @@ kind: Service
 metadata:
   name: canary-demo
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 8178
       targetPort: http
