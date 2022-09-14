@@ -6,5 +6,6 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-rbac-cm
 data:
-  policy.csv: |
+ policy.csv: |
+    p, role:workshop, projects, *, *, allow
     g, workshop, role:workshop
