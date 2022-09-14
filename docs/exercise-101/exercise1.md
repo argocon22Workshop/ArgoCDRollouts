@@ -1,6 +1,6 @@
 ### ArgoCD Setup
 
-In this exercise we will install Argo CD and login in the UI.
+In this exercise we will install Argo CD and login to the UI.
 
 #### Install Argo CD
 

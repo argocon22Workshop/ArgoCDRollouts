@@ -45,7 +45,7 @@ syncPolicy:
     selfHeal: true
 ```
 </li>
-<li>Commit the change to your own fork repo.</li>
+<li>Commit the changes and push to the main branch of your forked repo.</li>
 <li>Apply the new manifest to Argo CD.
 
 ```

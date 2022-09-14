@@ -26,7 +26,8 @@ If you don't have Homebrew already available you can install it via the followin
 ### 1.3 Verify the Github access
 
 Throughout the exercise, you will push the local changes to your forked repo using Github Access. Ensure that you have an active Github account, and have setup git access in your local computer.
-Please refer to the [Github documentation](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account) for information on how to create an account.
+
+If you do not have a Github account, please refer to the  [Github documentation](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account) for information on how to create an account.
 
 ### 1.4 Install Argo CD and Argo Rollouts CLIs
 
