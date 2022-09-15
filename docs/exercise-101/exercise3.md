@@ -14,7 +14,7 @@ Argo CD Controller:
 
 1. Edit the file in  `manifests/ArgoCD101-GuestbookManifests/deployment.yaml` change the replica count to 3.
 1. Commit the changes and push to the main branch of your forked repo.
-1. Login into ArgoCD UI using the user id `admin` and `password` (same credentials used in [exercise1][1])
+1. Login into Argo CD UI using the user id `admin` and `password` (same credentials used in [exercise 1][1])
 1. Take a note of the differences in the ArgoCD application manifest,  app will be OutOfSync (It might take a few minutes for the OutofSync status to appear).
 1. If you click the `APP DIFF` button in the Argo CD application, you will see that the replica count has changed to 3.
 1. Click on  `SYNC` button (Select the default options and synchronize all manifests) on the  application UI to apply the desired manifest.
