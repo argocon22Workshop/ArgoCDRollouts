@@ -70,25 +70,36 @@ Now lets look at the demo app web UI found at http://localhost we can see that w
 we do not send the response back to the end users. This allows us to fully test the canary with read only traffic looking for an
 increase in error rates without the end user ever noticing anything.
 
-##### 5.4. Modify rollout to add background analysis to abort when mirrored traffic has high error rate
+##### 5.4. Modify rollout to add background analysis
 
-Use the following image during the rollout to simulate bad requests
+Now let's modify the rollout to add background analysis. The analysis will watch the mirrored traffic going to the canary for high error rates and
+abort if they cross the configured threshold. The end user of the demo app as we have seen will not notice any issues because the errors will
+only be happening in the mirrored traffic.
+
+<details>
+  <summary>
+    Click to view solution
+  </summary>
+
+Modify the rollout to use the background analysis from exercise 4.
+
+Background analysis snippet from exercise 4 below:
+  ```yaml
+  ...
+    analysis:
+      templates:
+        - templateName: success-rate
+      startingStep: 1
+      args:
+        - name: service-name
+          value: istio-host-split-canary
+  ...
+  ```
+You can use kubectl edit to modify the rollout and add the above snippet the same location found [here](../../manifests/ArgoCD201-RolloutsDemoCanaryAnalysisIstio/canary.yaml#L61-L67):
+
+</details>
+
+After making the changes to the rollout object you can use this cmd to trigger a rollout with a bad image:
 ```sh
 kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patch '[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "ghcr.io/argocon22workshop/rollouts-demo:bad-red" }]'
 ```
-
-<details>
-<summary>Click to view solution</summary>
-    1. Modify the rollout to use the background analysis from task 2. 
-
-    # Background analysis snippet from task 2:
-    ...
-      analysis:
-        templates:
-          - templateName: success-rate
-        startingStep: 1
-        args:
-          - name: service-name
-            value: istio-host-split-canary
-    ...
-</details>
