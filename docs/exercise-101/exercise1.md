@@ -1,8 +1,8 @@
-### Exercise 1: Argo CD Setup
+### Exercise 1: Installing Argo CD
 
 In this exercise we will install Argo CD and login to the UI.
 
-#### 1.1. Install Argo CD
+#### 1.1. Install Argo CD manifests
 
 ```sh
 kubectl create namespace argocd
