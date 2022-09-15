@@ -83,7 +83,7 @@ only be happening in the mirrored traffic.
 
 Modify the rollout to use the background analysis from exercise 4.
 
-Background analysis snippet from exercise 4 below:
+Background analysis snippet from exercise 4  with a change to the starting step so it works with the mirrored rollout configuration:
   ```yaml
   ...
     analysis:
