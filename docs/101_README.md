@@ -40,21 +40,21 @@ provided in this repo:
     
 ## 2. Exercises
 
-### ArgoCD Exercises
+### Argo CD Exercises
 
 These exercises are based on Argo CD and GitOps concepts. The purpose of this is to familiarize you with the Argo CD UI and CLI.
 
-- [Exercise 1](exercise-101/exercise1.md) - Install Argo CD
-- [Exercise 2](exercise-101/exercise2.md) - Using Argo CD CLI
-- [Exercise 3](exercise-101/exercise3.md) - Application Sync Status
-- [Exercise 4](exercise-101/exercise4.md) - Sync Policy & Options
-- [Exercise 5](exercise-101/exercise5.md) - Deploy an Application with Gitops
+- [Exercise 1](exercise-101/exercise1.md) - Installing Argo CD
+- [Exercise 2](exercise-101/exercise2.md) - Using the Argo CD CLI
+- [Exercise 3](exercise-101/exercise3.md) - Understanding Application Sync Status
+- [Exercise 4](exercise-101/exercise4.md) - Setting Sync Policy & Options
+- [Exercise 5](exercise-101/exercise5.md) - Deploying an Application with GitOps
 
-### ArgoRollouts Exercises
+### Argo Rollouts Exercises
 
-- [Exercise 6](exercise-101/exercise6.md) - Install Argo Rollouts
-- [Exercise 7](exercise-101/exercise7.md) - Deploy Argo Rollouts Demo App
-- [Exercise 8](exercise-101/exercise8.md) - Deployment Strategies
+- [Exercise 6](exercise-101/exercise6.md) - Installing Argo Rollouts
+- [Exercise 7](exercise-101/exercise7.md) - Deploying and Argo Rollouts Demo App
+- [Exercise 8](exercise-101/exercise8.md) - Trying Deployment Strategies
 
 ## 3. References
 

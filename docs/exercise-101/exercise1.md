@@ -1,15 +1,15 @@
-### ArgoCD Setup
+### Exercise 1: Argo CD Setup
 
 In this exercise we will install Argo CD and login in the UI.
 
-#### Install Argo CD
+#### 1.1. Install Argo CD
 
 ```sh
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
-#### Retrieve the initial admin password
+#### 1.2. Retrieve the initial admin password
 
 ```sh
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
@@ -17,7 +17,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 **Save the password somewhere, as you will need it later in the workshop exercise.
 
-#### Load the UI
+#### 1.3. Load the UI
 
 Run the following command to access the UI in a new terminal window:
 

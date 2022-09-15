@@ -1,4 +1,4 @@
-### Application Sync Status
+### Exercise 3: Understanding Application Sync Status
 
 #### Overview
 
@@ -10,7 +10,7 @@ Argo CD Controller:
 - If both states are the same, do nothing and mark the application as synced.
 - If states are different mark the application as `OutOfSync`.
 
-#### Exercises
+#### Steps
 
 1. Fork [ArgoCon22 Repo](https://github.com/argocon22Workshop/ArgoCDRollouts)
 1. Clone the forked repo `git clone git@github.com:$WORKSHOP_USER/ArgoCDRollouts.git`
@@ -21,9 +21,9 @@ Argo CD Controller:
 1. Go to the Argo CD application and  click on the `APP DIFF` button.
 1. Take a note of the differences in the ArgoCD application, app will be OutOfSync. The replica count is changed to 3.
 1. Click on  `SYNC` button (Select the default options and synchronize all manifests) on the  application UI to apply the desired manifest.
-1. Once it's deployed, Application is marked as healthy and the number of pods will increased to 3.
+1. Once it's deployed, Application is marked as healthy and the number of pods will be increased to 3.
 
-#### Optional Exercise
+#### Optional Step
 
 Update the replica count to one without making any changes to the source code of Git?
 

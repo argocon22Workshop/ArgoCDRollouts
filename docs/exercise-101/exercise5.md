@@ -1,31 +1,32 @@
-### Deploy an Application with Gitops
+### Exercise 5: Deploying an Application with GitOps
 
 #### Overview
 
-Argo CD applications, projects and settings can be defined declaratively using Kubernetes manifests. Argo CD comes with its own crd that can be stored in github repo, and applied in a target cluster using kubectl or  using Argo CD.
-To setup declarative, you need to define the Application manifest, which uses your source repo.
+Argo CD applications, projects and settings can be defined declaratively using Kubernetes manifests. Argo CD comes with its own crd that can be stored in GitHub repo, and applied in a target cluster using kubectl or using Argo CD.
+To set up declaratively, you need to define the Application manifest, which uses your source repo.
 
-#### Exercises
+#### Steps
 
 1. Delete any app with the name guestbook. The app will be recreated using the Application manifest file.
-```
-argocd --port-forward-namespace argocd app delete guestbook --cascade
-```
-1. Edit the file in `manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` and replace the `<username>` with your Github username that you used to fork the repo.
+    ```sh
+    argocd --port-forward-namespace argocd app delete guestbook --cascade
+    ```
+1. Edit the file in `manifest/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` and replace the `<username>` with your GitHub username that you used to fork the repo.
 1. Commit the changes and push to the main branch of your forked repo.
 1. Deploy the app using Application manifest using the user id `admin` and `password`.
 
-```
-argocd --port-forward --port-forward-namespace argocd login
-argocd --port-forward-namespace argocd app create guestbook-gitops --repo "https://github.com/$WORKSHOP_USER/ArgoCDRollouts" --path manifests/ArgoCD101-GuestbookGitOps --dest-namespace default --dest-server https://kubernetes.default.svc
-```
+    ```sh
+    argocd --port-forward --port-forward-namespace argocd login
+    argocd --port-forward-namespace argocd app create guestbook-gitops --repo "https://github.com/$WORKSHOP_USER/ArgoCDRollouts" --path manifests/ArgoCD101-GuestbookGitOps --dest-namespace default --dest-server https://kubernetes.default.svc
+    ```
 
 1. Sync the application
-```
-argocd --port-forward-namespace argocd app sync guestbook-gitops
-```
 
-#### Optional Exercise
+    ```sh
+    argocd --port-forward-namespace argocd app sync guestbook-gitops
+    ```
+
+#### Optional Step
 
 Modify the `manifests/ArgoCD101-GuestbookGitOps/guestbook_application.yaml` file configuring sync policies to get the following outcome:
 - Changes in the manifests are applied automatically
@@ -54,7 +55,7 @@ argocd --port-forward --port-forward-namespace argocd login
 argocd --port-forward-namespace argocd app sync guestbook
 ```
 </li>
-<li>Verify the Sync policy from the ArgoCD UI.</li>
+<li>Verify the Sync policy from the Argo CD UI.</li>
 </ol>
 </details>
 

@@ -1,4 +1,4 @@
-### Sync Policy & Options
+### Exercise 4: Setting Sync Policy & Options
 
 #### Overview
 
@@ -6,17 +6,17 @@
     - auto-prune
     - auto-sync
 
-#### Exercises
+#### Steps
 
 1. Edit  [manifest/ArgoCD101-GuestbookManifests/kustomization.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookManifests/kustomization.yaml#L5) comment out `service.yaml`
 1. Commit the changes to your fork repo.
-1. Login into ArgoCD using the user id `admin` and `password` (same credentials used in [exercise1][1]).
+1. Login into ArgoCD using the user id `admin` and `password` (same credentials used in [exercise 1][1]).
 1. Go to the application and click on the `APP DIFF` button.
 1. The service object marked in red needs to be pruned (deleted).
 1. Select the sync with prune option, then apply the sync operation. After a successful  sync, the resource will be deleted.
 1. The health of the application will be marked as  `green`, and the state of the application matches the desired state.
 
-#### Optional Exercise
+#### Optional Step
 
 1. Using Argo CD cli, change the `guestbook` application to sync automatically
 
