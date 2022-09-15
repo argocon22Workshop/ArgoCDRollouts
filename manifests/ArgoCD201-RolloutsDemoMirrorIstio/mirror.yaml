@@ -71,7 +71,7 @@ spec:
       steps:
         - setCanaryScale:
             weight: 50
-        - setHeaders:
+        - setMirrorRoute:
             name: mirror-route
             percentage: 50
             match:

@@ -88,6 +88,6 @@ resources:
 - istio_sm.yaml
 - controller_sm.yaml
 - prometheus_ingress.yaml
-- stats_filter.yaml
+#- stats_filter.yaml
 patchesStrategicMerge:
 - prom_sa.yaml

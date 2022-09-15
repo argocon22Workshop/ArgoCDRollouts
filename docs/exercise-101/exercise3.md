@@ -7,19 +7,16 @@ By default, Argo CD polls Git repositories every three minutes to detect changes
 - Compare the desired state with the live state.
 
 Argo CD Controller:
-- If both states are the same, do nothing and mark the application as synced.
+- If both states are identical, do nothing and mark the application as synced..
 - If states are different mark the application as `OutOfSync`.
 
 #### Steps
 
-1. Fork [ArgoCon22 Repo](https://github.com/argocon22Workshop/ArgoCDRollouts)
-1. Clone the forked repo `git clone git@github.com:$WORKSHOP_USER/ArgoCDRollouts.git`
-1. Explore the manifest used in this task found [here](https://github.com/argocon22Workshop/ArgoCDRollouts/tree/main/manifests/ArgoCD101-GuestbookManifests).
-1. Edit [manifest/ArgoCD101-GuestbookManifests/deployment.yaml](https://github.com/argocon22Workshop/ArgoCDRollouts/blob/main/manifests/ArgoCD101-GuestbookManifests/deployment.yaml) change the replica count to 3.
-1. Commit the change to your own fork repo.
+1. Edit the file in  `manifests/ArgoCD101-GuestbookManifests/deployment.yaml` change the replica count to 3.
+1. Commit the changes and push to the main branch of your forked repo.
 1. Login into ArgoCD UI using the user id `admin` and `password` (same credentials used in [exercise1][1])
-1. Go to the Argo CD application and  click on the `APP DIFF` button.
-1. Take a note of the differences in the ArgoCD application, app will be OutOfSync. The replica count is changed to 3.
+1. Take a note of the differences in the ArgoCD application manifest,  app will be OutOfSync (It might take a few minutes for the OutofSync status to appear).
+1. If you click the `APP DIFF` button in the Argo CD application, you will see that the replica count has changed to 3.
 1. Click on  `SYNC` button (Select the default options and synchronize all manifests) on the  application UI to apply the desired manifest.
 1. Once it's deployed, Application is marked as healthy and the number of pods will be increased to 3.
 
