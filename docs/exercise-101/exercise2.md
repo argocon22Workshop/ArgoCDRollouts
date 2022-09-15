@@ -1,4 +1,4 @@
-### Using with Argo CD CLI
+### Exercise 2: Using the Argo CD CLI
 
 In this exercise we will deploy our first application using Argo CD CLI.
 
@@ -13,3 +13,4 @@ argocd --port-forward-namespace argocd repo add "https://github.com/$WORKSHOP_US
 argocd --port-forward-namespace argocd app create guestbook --repo "https://github.com/$WORKSHOP_USER/ArgoCDRollouts" --path manifests/ArgoCD101-GuestbookManifests --dest-namespace default --dest-server https://kubernetes.default.svc
 argocd --port-forward-namespace argocd app sync guestbook
 ```
+Verify the test application by going to the Argo CD UI.
