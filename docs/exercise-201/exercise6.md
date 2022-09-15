@@ -8,7 +8,7 @@ Install via this command which will replace Task 3's deployed rollout:
 ```sh
 kustomize build manifests/ArgoCD201-RolloutsDemoHeaderIstio/ | kubectl apply -f -
 
-# 6.We will promote full to make sure we are fully deployed
+# We will promote full to make sure we are fully deployed
 kubectl argo rollouts promote --full istio-host-split -n argo-rollouts-istio
 ```
 
