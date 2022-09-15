@@ -1,4 +1,4 @@
-### Sync Policy & Options
+### Exercise 4: Setting Sync Policy & Options
 
 #### Overview
 
@@ -6,7 +6,7 @@
     - auto-prune
     - auto-sync
 
-#### Exercises
+#### Steps
 
 1. Edit the file in  `manifests/ArgoCD101-GuestbookManifests/kustomization.yaml` comment out `service.yaml`
 1. Commit the changes and push to the main branch of your forked repo.
@@ -16,7 +16,7 @@
 1. Select the sync with prune option, then apply the sync operation. After a successful  sync, the service resource will be deleted.
 1. The health of the application will be marked as  `green`, and the state of the application matches the desired state.
 
-#### Optional Exercise
+#### Optional Step
 
 1. Using Argo CD cli, change the `guestbook` application to sync automatically
 

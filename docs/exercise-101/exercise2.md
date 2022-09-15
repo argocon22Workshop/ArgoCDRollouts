@@ -1,4 +1,4 @@
-### Using with Argo CD CLI
+### Exercise 2: Using the Argo CD CLI
 
 In this exercise we will deploy our first application using Argo CD CLI.
 

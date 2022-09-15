@@ -1,4 +1,4 @@
-### Argo Rollouts Setup
+### Exercise 6: Installing Argo Rollouts
 
 This exercise involves installing Argo Rollouts in order to begin configuring blue-green and canary deployments.
 

@@ -1,17 +1,19 @@
-### 1. Install and review the Rollout manifest with mirror step.
+### Exercise 5: Performing a canary rollout with a traffic mirroring step
+
+#### 5.1. Install and review the Rollout manifest with mirror step.
 
 Explore the Rollout manifest with analysis run found [here](../../manifests/ArgoCD201-RolloutsDemoMirrorIstio).
 
 Install via this command which will replace Task 2's deployed rollout:
-```
+```sh
 kustomize build manifests/ArgoCD201-RolloutsDemoMirrorIstio/ | kubectl apply -f -
 
 # We will promote full to make sure we are fully deployed
 kubectl argo rollouts promote --full istio-host-split -n argo-rollouts-istio
 ```
 
-### 2. Looking at the manifest we see the mirror step defined as:
-```
+#### 5.2. Looking at the manifest we see the mirror step defined as:
+```yaml
 steps:
   - setCanaryScale: # We scale just the pod counts to 50% of the stable
       weight: 50
@@ -34,9 +36,9 @@ We need to be able to control the paths that get mirrored because we do not want
 it could cause undesired modifications to the state of the app such as creating duplicate entries.
 
 
-#### 3. Apply a new image to the rollout
+##### 5.3. Apply a new image to the rollout
 Start by viewing the logs of all the pods within the deployment.
-```
+```sh
 kubectl logs -n argo-rollouts-istio -l app=istio-host-split -f --max-log-requests=10
 ```
 
@@ -48,12 +50,12 @@ You should see the following noting that there is only one color being shown:
 ```
 
 Now update the image to trigger a rollout using the following command:
-```
+```sh
 kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patch '[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "ghcr.io/argocon22workshop/rollouts-demo:blue" }]'
 ```
 
 View the logs again using this command:
-```
+```sh
 kubectl logs -n argo-rollouts-istio -l app=istio-host-split -f --max-log-requests=10
 ```
 Notice that now you will see multiple colors:
@@ -68,10 +70,10 @@ Now lets look at the demo app web UI found at http://localhost we can see that w
 we do not send the response back to the end users. This allows us to fully test the canary with read only traffic looking for an
 increase in error rates without the end user ever noticing anything.
 
-#### 5. Modify rollout to add background analysis to abort when mirrored traffic has high error rate
+##### 5.4. Modify rollout to add background analysis to abort when mirrored traffic has high error rate
 
 Use the following image during the rollout to simulate bad requests
-```
+```sh
 kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patch '[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "ghcr.io/argocon22workshop/rollouts-demo:bad-red" }]'
 ```
 
