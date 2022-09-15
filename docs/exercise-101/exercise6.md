@@ -12,4 +12,4 @@ argocd --port-forward-namespace argocd app create argo-rollouts --repo "https://
 argocd --port-forward-namespace argocd app sync argo-rollouts
 ```
 
-You can now view and sync the application at [https://localhost:8080/applications/argo-rollouts](https://localhost:8080/applications/argo-rollouts).
+You can now view the application at [https://localhost:8080/applications/argo-rollouts](https://localhost:8080/applications/argo-rollouts).
