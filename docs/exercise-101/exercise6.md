@@ -5,8 +5,11 @@ This exercise involves installing Argo Rollouts in order to begin configuring bl
 #### Install Argo Rollouts
 
 ```sh
-kubectl create namespace argo-rollouts
-kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
+WORKSHOP_USER="<username>"
+argocd --port-forward --port-forward-namespace argocd login
+argocd --port-forward-namespace argocd repo add "https://github.com/$WORKSHOP_USER/ArgoCDRollouts"
+argocd --port-forward-namespace argocd app create argo-rollouts --repo "https://github.com/$WORKSHOP_USER/ArgoCDRollouts" --path manifests/ArgoCD101-RolloutsController --dest-namespace argo-rollouts --dest-server https://kubernetes.default.svc
+argocd --port-forward-namespace argocd app sync argo-rollouts
 ```
 
-You can now view and sync the application at [https://localhost:8080/applications/argo-rollouts](https://localhost:8080/applications/argo-rollouts).
+You can now view the application at [https://localhost:8080/applications/argo-rollouts](https://localhost:8080/applications/argo-rollouts).
