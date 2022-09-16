@@ -23,7 +23,7 @@ Keep in mind that it's [not currently safe](https://argo-cd.readthedocs.io/en/st
 (as of Argo CD 2.4) to allow non-admins to install or modify ApplicationSets. The project's limitations do no good if
 the user can simply edit the ApplicationSet to use a different project.
 
-1. (Optional) Change `crenshaw-dev` in `manifest/ArgoCD201-ApplicationSets/project.yaml` to your GitHub username.
+1. (Optional) Change `crenshaw-dev` in `manifests/ArgoCD201-ApplicationSets/project.yaml` to your GitHub username.
    (If you make this change, you will also need to edit the ApplicationSet's `spec.template.spec.source.repoURL` field in the next step.)
 
 2. Apply the project manifest to the `argocd` namespace.
