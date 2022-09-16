@@ -4,7 +4,7 @@
 
 Explore the Rollout manifest with analysis run found [here](../../manifests/ArgoCD201-RolloutsDemoMirrorIstio).
 
-Install via this command which will replace Task 2's deployed rollout:
+Install via this command, which will replace any previously deployed rollout:
 ```sh
 kustomize build manifests/ArgoCD201-RolloutsDemoMirrorIstio/ | kubectl apply -f -
 

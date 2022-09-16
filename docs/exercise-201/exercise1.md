@@ -25,7 +25,7 @@ argocd --port-forward --port-forward-namespace argocd login
 For user enter: `admin`
 For password enter the string returned in the `kubectl` command above
 
-3. Now we need to change the password of the new user. The default password is the same as the one defined by Argo CD `admin` user. 
+3. Now we need to change the password of the new user. The default password is the same as the one defined by Argo CD `admin` user.
 
 Copy the same password used in step 2 and update the following command replacing the `ADMIN_PASSWORD` with it. Also update the new password replacing the `SOMETHING_SAFE` with something else (min 8 characters).
 
@@ -69,8 +69,12 @@ Save the file and apply it using the following command:
 kubectl apply -f manifests/ArgoCD201-ArgoCDRBAC/argocd-rbac-cm.yaml
 ```
 
-Navigate in the UI again and note that now you can see projects, accounts, clusters
+Navigate in the UI (See below for UI access) and note that now you can see projects, accounts, clusters
 
+```sh
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+Visit the UI at [`https://localhost:8080`](https://localhost:8080).
+```
 #### Optional Exercise
 
 Add a new permission for the user `workshop` allowing it to create projects
