@@ -4,7 +4,7 @@
 
 Explore the Rollout manifest with analysis run found [here](../../manifests/ArgoCD201-RolloutsDemoMirrorIstio).
 
-Install via this command which will replace Task 2's deployed rollout:
+Install via this command, which will replace any previously deployed rollout:
 ```sh
 kustomize build manifests/ArgoCD201-RolloutsDemoMirrorIstio/ | kubectl apply -f -
 
@@ -79,7 +79,7 @@ kubectl -n argo-rollouts-istio patch rollout istio-host-split --type json --patc
 
 <details>
 <summary>Click to view solution</summary>
-    1. Modify the rollout to use the background analysis from task 2. 
+    1. Modify the rollout to use the background analysis from task 2.
 
     # Background analysis snippet from task 2:
     ...
