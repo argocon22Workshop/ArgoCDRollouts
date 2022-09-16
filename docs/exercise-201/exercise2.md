@@ -57,9 +57,9 @@ echo '{"apiVersion": "v1", "kind": "Secret", "metadata": {"name": "github-token"
 
 #### 3. Install the ApplicationSet
 
-1. (Optional) Change `crenshaw-dev` in the `spec.template.spec.source.repoURL` field of `manifest/ArgoCD201-ApplicationSets/appset.yaml` to your GitHub username. (Only do this if you also did so in section 1.)
+1. (Optional) Change `crenshaw-dev` in the `spec.template.spec.source.repoURL` field of `manifests/ArgoCD201-ApplicationSets/appset.yaml` to your GitHub username. (Only do this if you also did so in section 1.)
 
-2. Change `crenshaw-dev` in the `spec.generators[0].pullRequest.github.owner` field of `manifest/ArgoCD201-ApplicationSets/appset.yaml` to your GitHub username.
+2. Change `crenshaw-dev` in the `spec.generators[0].pullRequest.github.owner` field of `manifests/ArgoCD201-ApplicationSets/appset.yaml` to your GitHub username.
 
 3. Apply the ApplicationSet manifest to the `argocd` namespace.
 
