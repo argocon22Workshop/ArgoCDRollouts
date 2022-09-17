@@ -51,7 +51,7 @@ The ApplicationSet controller makes a lot of GitHub API requests. To avoid hitti
 4. Create a new Secret to hold the token
 
 ```sh
-github_token=$(pbpaste)
+github_token=<Your GiHub Token>
 echo '{"apiVersion": "v1", "kind": "Secret", "metadata": {"name": "github-token"}, "stringData": {"token": "'$github_token'"}}' | kubectl apply -n argocd -f -
 ```
 
@@ -101,7 +101,12 @@ by that label.
 ### 6. List Applications again
 
 ```shell
-argocd app list --project appset
+argocd --port-forward --port-forward-namespace argocd login
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+(Username: admin)
+(Password:<Output from above command>)
+
+argocd --port-forward-namespace argocd app list  --project appset
 ```
 
 The list should contain an Application corresponding to your new PR.
