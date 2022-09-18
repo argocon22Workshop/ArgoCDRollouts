@@ -9,7 +9,7 @@ kustomize build manifests/ArgoCD201-RolloutsDemoCanaryIstio/ | kubectl apply -f 
 Run `kubectl get services -n istio-system | grep istio-ingressgateway` and wait for `<pending>` to switch to localhost
 if it does not try quiting and restarting docker for desktop. You can also try resetting docker for desktops kubernetes cluster.
 
-Now visit http://localhost to view the demo app and run `kubectl argo rollouts dashboard` cmd then visit http://localhost:3100 to view rollouts
+Now visit http://localhost to view the demo app and run `kubectl argo rollouts dashboard` cmd then visit http://localhost:3100/rollouts to view rollouts
 dashboard.
 
 #### 3.1. Start the Rollout process by editing the image
@@ -51,7 +51,7 @@ If you do not have the UI running locally yet run the following command:
 kubectl argo rollouts dashboard
 ```
 
-Then visit the UI at: http://localhost:3100
+Then visit the UI at: http://localhost:3100/rollouts
 
 You can then update the rollout image to a new color and promote the rollout to the next steps via the UI.
 ```sh
