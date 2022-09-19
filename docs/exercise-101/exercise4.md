@@ -56,7 +56,7 @@ Sync Policy:        Automated
 </details>
 
 ### References
-- https://argo-cd.readthedocs.io/en/stable/user-guide/sync-option
+- https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
 - https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/#automated-sync-semantics
 - https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/#automatic-pruning
 
