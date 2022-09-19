@@ -9,14 +9,14 @@ spec:
   sourceRepos:
     # Feel free to change crenshaw-dev to your username. If you do so, you'll need to change it in the `spec.template`
     # section of appset.yaml as well.
-    - "https://github.com/crenshaw-dev/ArgoCDRollouts.git"
+    - "https://github.com/adace123/ArgoCDRollouts.git"
   destinations:
     - namespace: default
       server: https://kubernetes.default.svc
   namespaceResourceWhitelist:
-    - group: 'apps'
+    - group: "apps"
       kind: Deployment
-    - group: 'apps'
+    - group: "apps"
       kind: ReplicaSet
-    - group: ''
+    - group: ""
       kind: Pod
