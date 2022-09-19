@@ -8,6 +8,10 @@ spec:
     namespace: default
     server: https://kubernetes.default.svc
   project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
   source:
     path: manifests/ArgoCD101-GuestbookManifests/
     repoURL: https://github.com/gisjedi/ArgoCDRollouts
