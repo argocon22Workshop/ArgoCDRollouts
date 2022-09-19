@@ -6,7 +6,7 @@ spec:
   generators:
     - pullRequest:
         # Short requeue time so we don't have to set up a webhook.
-        requeueAfterSeconds: 15
+        requeueAfterSeconds: 10
         github:
           owner: palamvmw
           repo: ArgoCDRollouts
