@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: manifests/ArgoCD101-GuestbookGitOps/
+    path: manifests/ArgoCD101-GuestbookManifests/
     repoURL: https://github.com/Williamburgson/ArgoCDRollouts
   syncPolicy:
     automated:
