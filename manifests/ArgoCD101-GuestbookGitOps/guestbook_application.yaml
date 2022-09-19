@@ -11,3 +11,7 @@ spec:
   source:
     path: manifests/ArgoCD101-GuestbookGitOps/
     repoURL: https://github.com/pww217/ArgoCDRollouts
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
