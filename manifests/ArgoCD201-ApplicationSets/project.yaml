@@ -9,7 +9,7 @@ spec:
   sourceRepos:
     # Feel free to change crenshaw-dev to your username. If you do so, you'll need to change it in the `spec.template`
     # section of appset.yaml as well.
-    - "https://github.com/crenshaw-dev/ArgoCDRollouts.git"
+    - "https://github.com/anusha-ragunathan/ArgoCDRollouts.git"
   destinations:
     - namespace: default
       server: https://kubernetes.default.svc
