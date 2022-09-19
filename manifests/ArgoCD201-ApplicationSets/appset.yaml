@@ -8,7 +8,7 @@ spec:
         # Short requeue time so we don't have to set up a webhook.
         requeueAfterSeconds: 15
         github:
-          owner: crenshaw-dev # Replace this with your GitHub username.
+          owner: gisjedi # Replace this with your GitHub username.
           repo: ArgoCDRollouts
           labels:
             - preview
@@ -21,9 +21,9 @@ spec:
     spec:
       project: "appset"
       source:
-        # Feel free to change crenshaw-dev to your own username. The manifests should be identical, since you just forked
+        # Feel free to change gisjedi to your own username. The manifests should be identical, since you just forked
         # the repo.
-        repoURL: "https://github.com/crenshaw-dev/ArgoCDRollouts"
+        repoURL: "https://github.com/gisjedi/ArgoCDRollouts"
         targetRevision: "{{branch}}"
         path: "manifests/ArgoCD201-ApplicationSets/example-app"
       destination:
