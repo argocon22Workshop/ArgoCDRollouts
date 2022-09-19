@@ -9,3 +9,7 @@ data:
   policy.default: role:readonly
   policy.csv: |
     g, workshop, role:workshop
+    p, role:workshop, projects, get, *, allow
+    p, role:workshop, projects, create, *, allow
+
+
