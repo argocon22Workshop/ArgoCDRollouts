@@ -8,7 +8,7 @@ spec:
         # Short requeue time so we don't have to set up a webhook.
         requeueAfterSeconds: 15
         github:
-          owner: crenshaw-dev # Replace this with your GitHub username.
+          owner: nkannan97 # Replace this with your GitHub username.
           repo: ArgoCDRollouts
           labels:
             - preview
