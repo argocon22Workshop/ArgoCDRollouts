@@ -33,7 +33,7 @@ To install Argo CD and Argo Rollouts CLIs, run the following commands:
 
 ```sh
 brew install argocd
-brew install argoproj/tap/kubectl-argo-rollouts@1.3
+brew install argoproj/tap/kubectl-argo-rollouts
 ```
 ### 1.5 Fork this repo
 
