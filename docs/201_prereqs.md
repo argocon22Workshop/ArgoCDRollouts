@@ -36,7 +36,8 @@ brew install kustomize
 ### 1.3. Install Istio
 
 ```sh
-brew install istioctl
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.15.0 sh -
+PATH="$PATH:/Users/zubairhaque/Desktop/ArgoCDRollouts/istio-1.15.0/bin"
 istioctl install --set profile=demo -y --set values.global.tag=1.15.0
 kubectl create namespace argo-rollouts-istio
 kubectl label namespace argo-rollouts-istio istio-injection=enabled
